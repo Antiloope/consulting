@@ -1,0 +1,181 @@
+/* ==========================================================================
+   SECCIONES — ajustes propios de cada bloque de la página.
+   Si una regla sirve en más de una sección, va en components.css.
+   ========================================================================== */
+
+/* ---- Hero ---------------------------------------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + var(--sp-12)) var(--sp-12);
+}
+
+.hero__inner { display: flex; flex-direction: column; gap: var(--sp-6); }
+
+.hero__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.hero__title {
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+}
+.hero__title em {
+  font-style: normal;
+  color: var(--accent-text);
+}
+
+.hero__lede {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-normal);
+  color: var(--text-muted);
+  max-width: 40ch;
+}
+
+.hero__actions { margin-top: var(--sp-2); }
+.hero__actions .btn { flex: 1 1 auto; }
+@media (min-width: 30em) { .hero__actions .btn { flex: 0 0 auto; } }
+
+.hero__signature {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  align-items: center;
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-5);
+  border-top: var(--border-width) solid var(--border);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.hero__signature strong { color: var(--text); font-weight: var(--fw-medium); }
+
+/* ---- Lo que se escucha ---------------------------------------------------- */
+.quotes {
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 40em) { .quotes { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64em) { .quotes { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---- El problema ---------------------------------------------------------- */
+.statement {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.statement + .statement { margin-top: var(--sp-5); }
+.statement--muted { color: var(--text-muted); font-weight: var(--fw-regular); }
+
+/* ---- Framework (4 fases) --------------------------------------------------- */
+.phases { counter-reset: phase; }
+.phase { position: relative; }
+.phase__label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+/* ---- Catálogo -------------------------------------------------------------- */
+.catalog__item {
+  display: grid;
+  gap: var(--sp-2);
+  padding-block: var(--sp-5);
+  border-bottom: var(--border-width) solid var(--border);
+}
+.catalog__item:first-child { border-top: var(--border-width) solid var(--border); }
+.catalog__name {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-tight);
+}
+.catalog__outcome { font-size: var(--fs-md); color: var(--text-muted); line-height: var(--lh-normal); }
+
+@media (min-width: 48em) {
+  .catalog__item {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto;
+    gap: var(--sp-6);
+    align-items: baseline;
+  }
+  .catalog__duration { justify-self: end; }
+}
+
+/* ---- Caso ------------------------------------------------------------------ */
+.case__stats {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: repeat(3, 1fr);
+  padding-block: var(--sp-8);
+}
+@media (max-width: 30em) {
+  .case__stats { grid-template-columns: 1fr; gap: var(--sp-5); }
+}
+
+/* ---- Manifiesto ------------------------------------------------------------ */
+.manifesto {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  max-width: 22ch;
+}
+.manifesto__coda {
+  margin-top: var(--sp-6);
+  font-size: var(--fs-lg);
+  color: var(--text-muted);
+  max-width: 34ch;
+}
+
+/* ---- Modelo de trabajo ------------------------------------------------------ */
+.not-selling {
+  margin-top: var(--sp-8);
+  padding: var(--sp-5);
+  border: var(--border-width) dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+}
+.not-selling__label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: var(--sp-2);
+}
+.not-selling__list { font-size: var(--fs-md); color: var(--text-muted); }
+
+/* ---- Contacto --------------------------------------------------------------- */
+.contact { text-align: left; }
+.contact__title { font-size: var(--fs-3xl); max-width: 18ch; }
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-top: var(--sp-8);
+  padding-top: var(--sp-6);
+  border-top: var(--border-width) solid var(--border);
+}
+@media (min-width: 40em) { .contact__links { flex-direction: row; gap: var(--sp-8); } }
+
+.contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 44px;
+  color: var(--text);
+  font-size: var(--fs-md);
+  text-decoration: none;
+}
+.contact__link:hover { color: var(--accent-text); }
+.contact__link svg { flex: none; width: 18px; height: 18px; opacity: 0.6; }

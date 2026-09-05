@@ -1,0 +1,226 @@
+/* ==========================================================================
+   LAYOUT — contenedores, secciones, header, footer, CTA fija de mobile.
+   ========================================================================== */
+
+/* ---- Contenedores ------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container--narrow { max-width: var(--container-narrow); }
+
+/* ---- Sección ------------------------------------------------------------ */
+.section {
+  padding-block: var(--section-py);
+  scroll-margin-top: var(--header-h);
+}
+.section--alt { background: var(--bg-alt); }
+/* Contexto invertido.
+   La superficie se da vuelta, así que se redefinen los tokens semánticos
+   localmente en vez de parchear componente por componente. Los componentes
+   no saben en qué contexto están: leen los mismos tokens de siempre. */
+.section--invert {
+  background: var(--bg-invert);
+  color: var(--text-on-invert);
+
+  --text:           var(--text-on-invert);
+  --text-muted:     var(--text-on-invert-muted);
+  --text-subtle:    var(--text-on-invert-muted);
+  --surface:        transparent;
+  --surface-sunken: transparent;
+  --border:         var(--border-invert);
+  --border-strong:  var(--border-invert);
+  --accent-text:    var(--accent-invert);
+  --accent-wash:    transparent;
+}
+.section--tight { padding-block: clamp(2.5rem, 6vw, 4rem); }
+
+.section__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-8);
+  max-width: var(--container-narrow);
+}
+
+.section__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.section__title { font-size: var(--fs-3xl); }
+
+.lede {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-normal);
+  color: var(--text-muted);
+}
+
+/* ---- Grillas ------------------------------------------------------------ */
+/* Mobile-first: todo arranca en 1 columna y crece con auto-fit. */
+.grid {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: 1fr;
+}
+.grid--2 { gap: var(--sp-5); }
+.grid--3 { gap: var(--sp-4); }
+.grid--4 { gap: var(--sp-4); }
+
+@media (min-width: 40em) {           /* 640px */
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 60em) {           /* 960px */
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stack { display: flex; flex-direction: column; gap: var(--sp-4); }
+.stack--sm { gap: var(--sp-2); }
+.stack--lg { gap: var(--sp-8); }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+/* ---- Header ------------------------------------------------------------- */
+.site-header {
+  /* Fixed (no sticky) para que flote sobre el hero oscuro en el scroll 0.
+     El hero compensa con padding-top; el resto, con scroll-padding-top. */
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-header);
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  /* El estado por defecto es el SÓLIDO: es el que se ve sin JS, y ahí el
+     header tiene que ser legible sobre el fondo claro de la página. */
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.6) blur(10px);
+  -webkit-backdrop-filter: saturate(1.6) blur(10px);
+  color: var(--text);
+  border-bottom: var(--border-width) solid var(--border);
+  transition: background-color var(--dur) var(--ease),
+              border-color var(--dur) var(--ease),
+              color var(--dur) var(--ease);
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Con JS, mientras el hero sigue en pantalla, el header flota transparente
+   sobre él. main.js pone data-scrolled="true" al pasarlo. */
+.js .site-header:not([data-scrolled="true"]) {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--text-on-invert);
+  border-bottom-color: transparent;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 44px;          /* target táctil */
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  letter-spacing: var(--ls-tight);
+  color: inherit;
+  text-decoration: none;
+}
+.brand__mark { color: var(--accent-text); }
+/* Mientras flota sobre el hero, el acento es el de superficie invertida. */
+.js .site-header:not([data-scrolled="true"]) .brand__mark { color: var(--accent-invert); }
+.brand__sub {
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+  letter-spacing: var(--ls-normal);
+}
+@media (max-width: 30em) { .brand__sub { display: none; } }
+
+/* Nav de anclas: oculta en mobile (la narrativa es scroll continuo),
+   visible desde tablet para la reunión en pantalla grande. */
+.site-nav { display: none; }
+@media (min-width: 64em) {
+  .site-nav {
+    display: flex;
+    gap: var(--sp-5);
+    align-items: center;
+  }
+  .site-nav a {
+    font-size: var(--fs-sm);
+    color: inherit;
+    opacity: 0.65;
+    text-decoration: none;
+    padding-block: var(--sp-2);
+    border-bottom: 2px solid transparent;
+    transition: opacity var(--dur-fast) var(--ease),
+                border-color var(--dur-fast) var(--ease);
+  }
+  .site-nav a:hover { opacity: 1; }
+  .site-nav a[aria-current="true"] {
+    opacity: 1;
+    border-bottom-color: var(--accent);
+  }
+}
+
+/* ---- Footer -------------------------------------------------------------- */
+.site-footer {
+  border-top: var(--border-width) solid var(--border);
+  padding-block: var(--sp-8);
+  padding-bottom: calc(var(--sp-8) + env(safe-area-inset-bottom));
+  font-size: var(--fs-sm);
+  color: var(--text-subtle);
+}
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---- CTA fija de mobile -------------------------------------------------
+   Aparece cuando el hero sale de pantalla. Es el principal driver de
+   conversión en prospecting, donde casi todo el tráfico es celular.
+   -------------------------------------------------------------------------- */
+.cta-bar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: var(--z-sticky);
+  padding: var(--sp-3) var(--gutter);
+  padding-bottom: calc(var(--sp-3) + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: var(--border-width) solid var(--border);
+  transform: translateY(110%);
+  transition: transform var(--dur) var(--ease-out);
+}
+.cta-bar[data-visible="true"] { transform: translateY(0); }
+.cta-bar .btn { width: 100%; }
+
+@media (min-width: 48em) { .cta-bar { display: none; } }
+
+/* Espacio al final para que la CTA fija no tape el footer */
+@media (max-width: 47.99em) {
+  .site-footer { padding-bottom: calc(var(--sp-20) + env(safe-area-inset-bottom)); }
+}

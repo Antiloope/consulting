@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ==========================================================================
+     META — revisar antes de publicar. Ver CONTENT.md § 1.
+     ========================================================================== -->
+<title>Rodrigo Pizarro — Modernización tecnológica para PyMEs con software crítico</title>
+<meta name="description" content="Consultoría de tecnología en Córdoba, Argentina. Diagnóstico, plataforma interna, confiabilidad y modernización de sistemas legacy para empresas que crecieron alrededor de su software.">
+<link rel="canonical" href="https://TU-DOMINIO.com/"><!-- TODO -->
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Modernización tecnológica para PyMEs con software crítico">
+<meta property="og:description" content="Crecer adaptando el software a la velocidad del negocio.">
+<meta property="og:url" content="https://TU-DOMINIO.com/"><!-- TODO -->
+<meta property="og:image" content="https://TU-DOMINIO.com/assets/img/og.png"><!-- TODO 1200x630 -->
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+<!-- CSS: orden obligatorio (tokens primero). Sin build ni bundler. -->
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+
+<!-- Marca que hay JS antes del primer paint: habilita las animaciones de
+     entrada. Si este script no corre, la página se ve completa igual. -->
+<script>document.documentElement.className += ' js';</script>
+<script defer src="assets/js/main.js"></script>
+<!-- Red de seguridad: si main.js no llegó a correr, nada queda oculto. -->
+<script>addEventListener('load', function () {
+  if (!document.documentElement.dataset.enhanced) {
+    document.documentElement.classList.remove('js');
+  }
+});</script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <a class="brand" href="#top">
+      <span><span class="brand__mark">/</span> Rodrigo Pizarro</span>
+      <span class="brand__sub">Consultoría de tecnología</span>
+    </a>
+
+    <nav class="site-nav" data-nav aria-label="Secciones">
+      <a href="#problema">Problema</a>
+      <a href="#framework">Cómo trabajo</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#caso">Caso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ========================================================================
+       01 · HERO
+       ======================================================================== -->
+  <section class="hero section--invert" id="top" data-hero>
+    <div class="container hero__inner">
+      <p class="hero__eyebrow">Consultoría de tecnología · Córdoba, Argentina</p>
+
+      <h1 class="hero__title">
+        Modernización tecnológica para PyMEs con <em>software crítico</em>
+      </h1>
+
+      <p class="hero__lede">
+        Crecer adaptando el software a la velocidad del negocio.
+      </p>
+
+      <div class="cluster hero__actions">
+        <a class="btn btn--primary" href="#contacto">Agendar 30 minutos</a>
+        <a class="btn btn--ghost" href="#servicios">Ver intervenciones</a>
+      </div>
+
+      <p class="hero__signature">
+        <strong>Rodrigo Pizarro</strong>
+        <span>Precio fijo · alcance cerrado · sin dependencia</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       02 · LO QUE SE ESCUCHA — señales de entrada. 7 citas.
+       ======================================================================== -->
+  <section class="section" id="senales" aria-labelledby="senales-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Lo que se escucha</p>
+        <h2 class="section__title" id="senales-title">Frases que suenan conocidas</h2>
+      </div>
+
+      <ul class="quotes reveal">
+        <li class="quote">“Solo Marcos sabe cómo funciona eso.”</li>
+        <li class="quote">“Tenemos miedo de tocar producción.”</li>
+        <li class="quote">“El conocimiento está en la cabeza de una persona.”</li>
+        <li class="quote">“No tenemos ambiente de testing.”</li>
+        <li class="quote">“Cada cambio da un poco de miedo.”</li>
+        <li class="quote">“Siempre apagando incendios.”</li>
+        <li class="quote">“El sistema no acompaña el crecimiento.”</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       03 · EL PROBLEMA
+       ======================================================================== -->
+  <section class="section section--invert" id="problema" aria-labelledby="problema-title">
+    <div class="container container--narrow">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">El problema</p>
+      </div>
+      <h2 class="statement reveal" id="problema-title">
+        La empresa creció alrededor de su software.
+      </h2>
+      <p class="statement statement--muted reveal">
+        La forma de construirlo y mantenerlo no evolucionó a la velocidad del negocio.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       04 · FRAMEWORK — 4 fases
+       ======================================================================== -->
+  <section class="section" id="framework" aria-labelledby="framework-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">El framework de la solución</p>
+        <h2 class="section__title" id="framework-title">Cuatro fases, siempre las mismas</h2>
+      </div>
+
+      <ol class="grid grid--4 phases reveal">
+        <li class="card card--numbered phase">
+          <p class="phase__label">Fase 1</p>
+          <h3 class="card__title">Diagnóstico</h3>
+          <p class="card__body">Cómo funcionan hoy la tecnología, el equipo completo y la operación.</p>
+        </li>
+        <li class="card card--numbered phase">
+          <p class="phase__label">Fase 2</p>
+          <h3 class="card__title">Planificación</h3>
+          <p class="card__body">Dependiendo del diagnóstico se arman caminos concretos a seguir.</p>
+        </li>
+        <li class="card card--numbered phase">
+          <p class="phase__label">Fase 3</p>
+          <h3 class="card__title">Ejecución</h3>
+          <p class="card__body">Se colabora en la ejecución del plan para dejar a la organización en un nuevo nivel.</p>
+        </li>
+        <li class="card card--numbered phase">
+          <p class="phase__label">Fase 4</p>
+          <h3 class="card__title">Resultados finales</h3>
+          <p class="card__body">Comparando el antes y el después del proceso. El equipo queda preparado para seguir creciendo con autonomía.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       05 · MAPA DE MADUREZ — 5 niveles (00 a 04)
+       REVISAR: en el deck, los niveles 00 y 01 comparten descripción.
+       El texto de 00 de acá es una propuesta, cambiala. Ver CONTENT.md § 3.
+       ======================================================================== -->
+  <section class="section section--alt" id="madurez" aria-labelledby="madurez-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Mapa de madurez tecnológica</p>
+        <h2 class="section__title" id="madurez-title">Dónde está hoy y a dónde puede llegar</h2>
+        <p class="lede">
+          Cada organización es distinta. Con el diagnóstico inicial el objetivo es comprender
+          el estadío de madurez tecnológica actual y planificar a qué nuevo nivel se pretende llegar.
+        </p>
+      </div>
+
+      <ol class="levels reveal">
+        <li class="level" data-level="0">
+          <p class="level__num">00</p>
+          <h3 class="level__name">Ad hoc</h3>
+          <p class="level__desc">Sin versionado, deploys manuales, conocimiento tácito.</p>
+        </li>
+        <li class="level" data-level="1">
+          <p class="level__num">01</p>
+          <h3 class="level__name">Estabilización</h3>
+          <p class="level__desc">Versionado, ambientes, incidentes.</p>
+        </li>
+        <li class="level" data-level="2">
+          <p class="level__num">02</p>
+          <h3 class="level__name">Estandarización</h3>
+          <p class="level__desc">Stack, prácticas, lineamientos, ownership.</p>
+        </li>
+        <li class="level" data-level="3">
+          <p class="level__num">03</p>
+          <h3 class="level__name">Plataforma</h3>
+          <p class="level__desc">IDP, CI/CD, costos de infraestructura.</p>
+        </li>
+        <li class="level" data-level="4">
+          <p class="level__num">04</p>
+          <h3 class="level__name">Escalado</h3>
+          <p class="level__desc">SRE, métricas, on-call, SLA, soporte.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       06 · CATÁLOGO + DETALLE DE SERVICIOS
+       Cada <details> es un servicio. Para agregar uno, copiá un bloque entero.
+       ======================================================================== -->
+  <section class="section" id="servicios" aria-labelledby="servicios-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Catálogo de intervenciones</p>
+        <h2 class="section__title" id="servicios-title">Cinco formas de entrar</h2>
+        <p class="lede">Alcance cerrado y precio fijo. Se compra un resultado en un plazo, no horas de consultor.</p>
+      </div>
+
+      <div class="reveal" data-exclusive>
+
+        <!-- ---- Servicio: oferta de entrada ---- -->
+        <details class="disclosure" open>
+          <summary class="disclosure__summary">
+            <span class="disclosure__titles">
+              <span class="disclosure__name">Technology Assessment</span>
+              <span class="disclosure__meta">2–4 semanas · Oferta de entrada</span>
+            </span>
+            <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </summary>
+          <div class="disclosure__content stack">
+            <p class="quote">“Sabemos que hay problemas, pero no sabemos por dónde empezar.”</p>
+            <p class="card__body">Diagnóstico, roadmap priorizado y quick wins.</p>
+            <h4>Entregables</h4>
+            <ul class="checklist">
+              <li>Current state y pain points</li>
+              <li>Target state</li>
+              <li>Roadmap priorizado por impacto y esfuerzo</li>
+              <li>Quick wins</li>
+              <li>Presentación ejecutiva para dirección</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---- Servicio ---- -->
+        <details class="disclosure">
+          <summary class="disclosure__summary">
+            <span class="disclosure__titles">
+              <span class="disclosure__name">Engineering Transformation</span>
+              <span class="disclosure__meta">2–4 meses</span>
+            </span>
+            <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </summary>
+          <div class="disclosure__content stack">
+            <p class="card__body">Desarrollar software de forma profesional y predecible. El modelo de ingeniería queda funcionando y adoptado.</p>
+            <div class="grid grid--2">
+              <div class="stack stack--sm">
+                <h4>Engineering</h4>
+                <p class="card__body">Git, arquitectura, estándares, testing, code review.</p>
+              </div>
+              <div class="stack stack--sm">
+                <h4>Delivery</h4>
+                <p class="card__body">CI/CD, ambientes, releases, rollback.</p>
+              </div>
+              <div class="stack stack--sm">
+                <h4>Way of working</h4>
+                <p class="card__body">Backlog, planificación, roles, ownership.</p>
+              </div>
+              <div class="stack stack--sm">
+                <h4>Developer experience</h4>
+                <p class="card__body">Templates, onboarding, automatizaciones.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- ---- Servicio ---- -->
+        <details class="disclosure">
+          <summary class="disclosure__summary">
+            <span class="disclosure__titles">
+              <span class="disclosure__name">Developer Platform</span>
+              <span class="disclosure__meta">3 meses</span>
+            </span>
+            <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </summary>
+          <div class="disclosure__content stack">
+            <p class="card__body">Un developer nuevo hace por sí mismo lo que antes requería conocer cinco proveedores, tres máquinas y dos personas.</p>
+            <ul class="checklist">
+              <li>Repos y templates</li>
+              <li>CI/CD y rollback</li>
+              <li>Infra como código</li>
+              <li>Ambientes y secrets</li>
+              <li>Observabilidad</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---- Servicio ---- -->
+        <details class="disclosure">
+          <summary class="disclosure__summary">
+            <span class="disclosure__titles">
+              <span class="disclosure__name">Reliability &amp; Incident</span>
+              <span class="disclosure__meta">12 semanas</span><!-- REVISAR: el ejemplo de proyecto usa 8 semanas -->
+            </span>
+            <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </summary>
+          <div class="disclosure__content stack">
+            <div class="grid grid--2">
+              <p class="quote">“¿Quién sabe arreglar esto?”</p>
+              <p class="quote">“¿Cuál es el proceso para resolver esto?”</p>
+            </div>
+            <div class="grid grid--2">
+              <div class="stack stack--sm">
+                <h4>Incident management</h4>
+                <p class="card__body">Niveles de soporte, escalamiento, war rooms.</p>
+              </div>
+              <div class="stack stack--sm">
+                <h4>Reliability</h4>
+                <p class="card__body">Observabilidad, métricas, alertas, ownership.</p>
+              </div>
+              <div class="stack stack--sm">
+                <h4>Aprendizaje</h4>
+                <p class="card__body">Postmortems y seguimiento de acciones.</p>
+              </div>
+              <div class="stack stack--sm">
+                <h4>Equipo</h4>
+                <p class="card__body">Capacitación, simulaciones, documentación.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- ---- Servicio ---- -->
+        <details class="disclosure">
+          <summary class="disclosure__summary">
+            <span class="disclosure__titles">
+              <span class="disclosure__name">Legacy Modernization</span>
+              <span class="disclosure__meta">Por etapa · Especialización</span>
+            </span>
+            <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </summary>
+          <div class="disclosure__content stack">
+            <p class="card__body">Una etapa por vez, con el sistema en producción.</p>
+            <ol class="grid grid--3">
+              <li class="card"><p class="card__num">01</p><h4 class="card__title">Identificar dominio</h4></li>
+              <li class="card"><p class="card__num">02</p><h4 class="card__title">Encapsular</h4></li>
+              <li class="card"><p class="card__num">03</p><h4 class="card__title">Crear nueva API</h4></li>
+              <li class="card"><p class="card__num">04</p><h4 class="card__title">Migrar funcionalidad</h4></li>
+              <li class="card"><p class="card__num">05</p><h4 class="card__title">Retirar el componente legacy</h4></li>
+            </ol>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       07 · CASO EN CURSO — SIGES
+       Para agregar más casos: duplicar esta sección con otro id.
+       ======================================================================== -->
+  <section class="section section--alt" id="caso" aria-labelledby="caso-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Caso en curso</p>
+        <h2 class="section__title" id="caso-title">SIGES</h2>
+        <p class="lede">
+          Red de estaciones de servicio. Sistema legacy en Visual FoxPro,
+          operación distribuida, cinco developers.
+        </p>
+      </div>
+
+      <div class="case__stats reveal">
+        <div class="stat">
+          <p class="stat__value">5</p>
+          <p class="stat__label">developers en todo el equipo</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">2</p>
+          <p class="stat__label">conocían el núcleo del sistema</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">0</p>
+          <p class="stat__label">control de versiones al empezar</p>
+        </div>
+      </div>
+
+      <div class="compare reveal">
+        <div class="compare__head">
+          <p class="compare__label">Antes</p>
+          <p class="compare__label">Después</p>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Código repartido, sin control de versiones</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label">Después</p>
+            <p class="compare__after">Monorepo versionado con arquitectura limpia</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Deploy estación por estación con TeamViewer</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label">Después</p>
+            <p class="compare__after">Deploy a toda la red en segundos desde el IDP</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Producción como ambiente de prueba</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label">Después</p>
+            <p class="compare__after">Framework de testing y ambientes bajos</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Poca visibilidad de la operación</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label">Después</p>
+            <p class="compare__after">Observabilidad de toda la red con Grafana</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Conocimiento concentrado en dos personas</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label">Después</p>
+            <p class="compare__after">Estándares, documentación y ownership del equipo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       08 · MANIFIESTO
+       ======================================================================== -->
+  <section class="section section--invert" id="manifiesto" aria-labelledby="manifiesto-title">
+    <div class="container container--narrow">
+      <h2 class="manifesto reveal" id="manifiesto-title">
+        No modernizamos solamente el software. Modernizamos la capacidad de la empresa
+        para producir, desplegar y operar software.
+      </h2>
+      <p class="manifesto__coda reveal">
+        Esa capacidad es lo que queda cuando el proyecto termina.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       09 · ANATOMÍA DE UN PROYECTO
+       REVISAR: los rangos de semanas salieron ambiguos del deck. Ver CONTENT.md § 3.
+       ======================================================================== -->
+  <section class="section" id="anatomia" aria-labelledby="anatomia-title">
+    <div class="container container--narrow">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Anatomía de un proyecto</p>
+        <h2 class="section__title" id="anatomia-title">Ejemplo: Reliability en 8 semanas</h2>
+      </div>
+
+      <ol class="timeline reveal">
+        <li class="timeline__item">
+          <div class="timeline__rail"><span class="timeline__dot"></span><span class="timeline__line"></span></div>
+          <div>
+            <p class="timeline__when">Semana 1</p>
+            <h3 class="timeline__what">Inicio</h3>
+            <p class="timeline__detail">Assessment y acuerdo de alcance.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__rail"><span class="timeline__dot"></span><span class="timeline__line"></span></div>
+          <div>
+            <p class="timeline__when">Semanas 2–7</p>
+            <h3 class="timeline__what">Implementación</h3>
+            <p class="timeline__detail">Procesos y herramientas funcionando.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__rail"><span class="timeline__dot"></span><span class="timeline__line"></span></div>
+          <div>
+            <p class="timeline__when">Semana 8</p>
+            <h3 class="timeline__what">Adopción</h3>
+            <p class="timeline__detail">Capacitación, simulación y ajustes.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__rail"><span class="timeline__dot"></span><span class="timeline__line"></span></div>
+          <div>
+            <p class="timeline__when">Cierre</p>
+            <h3 class="timeline__what">Entrega</h3>
+            <p class="timeline__detail">Documentación y ownership interno.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10 · MODELO DE TRABAJO
+       ======================================================================== -->
+  <section class="section section--alt" id="modelo" aria-labelledby="modelo-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Modelo de trabajo</p>
+        <h2 class="section__title" id="modelo-title">Cómo se contrata</h2>
+      </div>
+
+      <div class="grid grid--3 reveal">
+        <div class="card">
+          <h3 class="card__title">Precio fijo</h3>
+          <p class="card__body">Se compra un resultado en un plazo, no horas de consultor.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Principio y fin</h3>
+          <p class="card__body">Alcance cerrado, con exclusiones explícitas en la propuesta.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Sin dependencia</h3>
+          <p class="card__body">No vendo el mantenimiento de lo que implemento.</p>
+        </div>
+      </div>
+
+      <div class="not-selling reveal">
+        <p class="not-selling__label">Lo que no vendo</p>
+        <p class="not-selling__list">
+          Desarrollo a medida, staff augmentation, soporte IT, consultoría por hora.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11 · CONTACTO — TODO: reemplazar email y LinkedIn. Ver CONTENT.md § 1.
+       ======================================================================== -->
+  <section class="section section--invert contact" id="contacto" aria-labelledby="contacto-title">
+    <div class="container container--narrow">
+      <p class="section__eyebrow reveal">Primer paso</p>
+      <h2 class="contact__title reveal" id="contacto-title">Empecemos por entender cómo está hoy</h2>
+      <p class="lede reveal" style="margin-top: var(--sp-4)">
+        Una conversación de 30 minutos para ver si hay un problema que valga la pena resolver.
+      </p>
+
+      <div class="cluster reveal" style="margin-top: var(--sp-6)">
+        <a class="btn btn--primary" href="mailto:hola@TU-DOMINIO.com?subject=Consulta%20-%20Modernizaci%C3%B3n%20tecnol%C3%B3gica">
+          Escribir un mail
+        </a>
+      </div>
+
+      <div class="contact__links reveal">
+        <a class="contact__link" href="mailto:hola@TU-DOMINIO.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          hola@TU-DOMINIO.com
+        </a>
+        <a class="contact__link" href="https://www.linkedin.com/in/TU-USUARIO" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.46-2.2 2.96V21h-3.9V9Z"/></svg>
+          linkedin.com/in/TU-USUARIO
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>© <span id="year">2026</span> Rodrigo Pizarro · Córdoba, Argentina</p>
+    <p>Consultoría de tecnología</p>
+  </div>
+</footer>
+
+<!-- CTA fija de mobile -->
+<div class="cta-bar" data-cta-bar>
+  <a class="btn btn--primary" href="#contacto">Agendar 30 minutos</a>
+</div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- Datos estructurados: ayuda a que el link se vea bien en buscadores. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Rodrigo Pizarro — Consultoría de tecnología",
+  "description": "Modernización tecnológica para PyMEs con software crítico.",
+  "url": "https://TU-DOMINIO.com/",
+  "areaServed": "AR",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Córdoba",
+    "addressCountry": "AR"
+  },
+  "knowsAbout": [
+    "Technology Assessment",
+    "Engineering Transformation",
+    "Developer Platform",
+    "Reliability & Incident Management",
+    "Legacy Modernization"
+  ]
+}
+</script>
+</body>
+</html>

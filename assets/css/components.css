@@ -1,0 +1,304 @@
+/* ==========================================================================
+   COMPONENTES — piezas reutilizables. Cada bloque es independiente.
+   ========================================================================== */
+
+/* ---- Botones ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 44px;                 /* target táctil mínimo */
+  padding: var(--sp-3) var(--sp-6);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.btn--primary:hover { background: var(--accent-hover); color: var(--text-on-accent); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn--ghost:hover { border-color: var(--text); color: var(--text); }
+
+.btn--sm { min-height: 36px; padding: var(--sp-2) var(--sp-4); font-size: var(--fs-sm); }
+
+/* ---- Etiquetas / pills --------------------------------------------------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--radius-pill);
+  background: var(--accent-wash);
+  color: var(--accent-text);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-normal);
+  line-height: 1.6;
+}
+.tag--neutral {
+  background: transparent;
+  border: var(--border-width) solid var(--border);
+  color: var(--text-muted);
+}
+
+/* ---- Card ---------------------------------------------------------------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.card__title { font-size: var(--fs-lg); }
+.card__body { font-size: var(--fs-md); color: var(--text-muted); line-height: var(--lh-normal); }
+.card__meta {
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+}
+
+/* Card numerada (fases, niveles, pasos) */
+.card--numbered { position: relative; }
+.card__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--accent-text);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ---- Quote --------------------------------------------------------------- */
+.quote {
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  color: var(--text-muted);
+}
+.section--invert .quote { border-left-color: var(--accent-text); }
+
+/* ---- Stat ---------------------------------------------------------------- */
+.stat { display: flex; flex-direction: column; gap: var(--sp-1); }
+.stat__value {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--accent-text);
+}
+.stat__label {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: var(--lh-normal);
+}
+/* ---- Escala de madurez ---------------------------------------------------- */
+.levels { display: grid; gap: var(--sp-3); grid-template-columns: 1fr; }
+@media (min-width: 48em) { .levels { grid-template-columns: repeat(5, 1fr); } }
+
+.level {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  /* Progresión visual: cada nivel un poco más "encendido" */
+  border-top: 3px solid var(--border-strong);
+}
+.level[data-level="1"] { border-top-color: color-mix(in srgb, var(--accent) 30%, var(--border-strong)); }
+.level[data-level="2"] { border-top-color: color-mix(in srgb, var(--accent) 50%, var(--border-strong)); }
+.level[data-level="3"] { border-top-color: color-mix(in srgb, var(--accent) 75%, var(--border-strong)); }
+.level[data-level="4"] { border-top-color: var(--accent); }
+.level__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+  letter-spacing: var(--ls-wide);
+}
+.level__name { font-size: var(--fs-base); font-weight: var(--fw-semibold); }
+.level__desc { font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-normal); }
+
+/* ---- Timeline ------------------------------------------------------------- */
+.timeline { display: grid; gap: 0; }
+.timeline__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-4);
+  padding-bottom: var(--sp-6);
+}
+.timeline__item:last-child { padding-bottom: 0; }
+.timeline__rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.timeline__dot {
+  width: 11px; height: 11px;
+  margin-top: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  flex: none;
+}
+.timeline__line {
+  flex: 1;
+  width: var(--border-width);
+  background: var(--border);
+}
+.timeline__item:last-child .timeline__line { display: none; }
+.timeline__when {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.timeline__what { font-size: var(--fs-lg); font-weight: var(--fw-semibold); margin-top: var(--sp-1); }
+.timeline__detail { font-size: var(--fs-md); color: var(--text-muted); line-height: var(--lh-normal); }
+
+/* ---- Comparación antes / después -------------------------------------------
+   En mobile se apila como pares; en desktop es una tabla de dos columnas.
+   ---------------------------------------------------------------------------- */
+.compare { display: grid; gap: var(--sp-3); }
+.compare__row {
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.compare__side { display: flex; flex-direction: column; gap: var(--sp-1); }
+.compare__label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.compare__before { font-size: var(--fs-md); color: var(--text-muted); }
+.compare__after  { font-size: var(--fs-md); color: var(--text); font-weight: var(--fw-medium); }
+
+@media (min-width: 48em) {
+  .compare__row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    align-items: start;
+  }
+  .compare__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    padding-inline: var(--sp-4);
+  }
+  .compare__row .compare__label { display: none; }
+  .compare__after { position: relative; padding-left: var(--sp-5); }
+  .compare__after::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.55em;
+    width: 12px; height: var(--border-width);
+    background: var(--accent);
+  }
+}
+.compare__head { display: none; }
+@media (min-width: 48em) { .compare__head { display: grid; } }
+
+/* ---- Lista con check ------------------------------------------------------- */
+.checklist { display: grid; gap: var(--sp-3); }
+.checklist li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-3);
+  align-items: start;
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+}
+.checklist li::before {
+  content: "";
+  width: 7px; height: 7px;
+  margin-top: 0.55em;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+}
+
+/* ---- Detalle expandible (nativo, sin JS) ------------------------------------ */
+.disclosure {
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  overflow: hidden;
+}
+.disclosure + .disclosure { margin-top: var(--sp-3); }
+
+.disclosure__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  min-height: 56px;
+  padding: var(--sp-4) var(--sp-5);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+.disclosure__summary::-webkit-details-marker { display: none; }
+.disclosure__summary:hover { background: var(--surface-sunken); }
+
+.disclosure__titles { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.disclosure__name { font-size: var(--fs-lg); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); }
+.disclosure__meta { font-size: var(--fs-xs); color: var(--text-subtle); }
+
+.disclosure__icon {
+  flex: none;
+  width: 20px; height: 20px;
+  color: var(--text-subtle);
+  transition: transform var(--dur) var(--ease);
+}
+.disclosure[open] .disclosure__icon { transform: rotate(45deg); }
+
+.disclosure__content {
+  padding: 0 var(--sp-5) var(--sp-5);
+  border-top: var(--border-width) solid var(--border);
+  padding-top: var(--sp-5);
+}
+
+/* ---- Aparición al scrollear -------------------------------------------------
+   Se oculta SOLO si hay JS (clase .js en <html>, puesta por el snippet inline
+   del <head>). Sin JS, o si main.js falla, la página se ve completa.
+   ---------------------------------------------------------------------------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+.js .reveal[data-visible="true"] { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; }
+}

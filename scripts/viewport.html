@@ -1,0 +1,14 @@
+<!doctype html><meta charset=utf-8>
+<style>html,body{margin:0;background:#888}iframe{border:0;display:block}</style>
+<script>
+const q = new URLSearchParams(location.search);
+const w = +q.get('w') || 390, h = +q.get('h') || 844, y = +q.get('y') || 0;
+document.write(`<iframe id=f src="/" width="${w}" height="${h}"></iframe>`);
+document.getElementById('f').addEventListener('load', e => {
+  const win = e.target.contentWindow;
+  win.document.documentElement.style.scrollBehavior = 'auto';
+  win.scrollTo(0, y);
+  if (q.get('open')) win.document.querySelectorAll('details').forEach(d => d.open = true);
+  setTimeout(() => win.document.querySelectorAll('.reveal').forEach(el => el.dataset.visible = 'true'), 100);
+});
+</script>

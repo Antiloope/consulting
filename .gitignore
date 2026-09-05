@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+._*
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Node (por si más adelante se suma alguna herramienta)
+node_modules/
+npm-debug.log*
+
+# Local
+.env
+.env.local
+
+# Capturas locales
+.shots/
