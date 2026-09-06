@@ -76,6 +76,32 @@
 }
 .statement + .statement { margin-top: var(--sp-5); }
 .statement--muted { color: var(--text-muted); font-weight: var(--fw-regular); }
+/* Misma idea que .hero__title em: la frase que no se puede copiar, más
+   grande que el resto — no solo de otro color. */
+.statement em { font-style: normal; color: var(--accent-text); font-size: 1.15em; }
+
+/* ---- Compromiso: anticipo de prueba ---------------------------------------
+   Comparte sección con la declaración de arriba pero en su propio .container
+   (necesita más ancho que container--narrow) y con su propio ritmo interno,
+   más apretado que --section-py: es un anticipo, no una sección nueva.
+   ---------------------------------------------------------------------------- */
+.proof-teaser {
+  margin-top: var(--sp-10);
+  padding-top: var(--sp-10);
+  border-top: var(--border-width) solid var(--border);
+}
+.proof-teaser__lede { max-width: 60ch; }
+.proof-teaser__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: var(--sp-3);
+  color: var(--accent-text);
+  font-weight: var(--fw-medium);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.proof-teaser__link:hover { color: var(--accent-hover); }
 
 /* ---- Framework (4 fases) --------------------------------------------------- */
 .phases { counter-reset: phase; }
@@ -119,9 +145,12 @@
   grid-template-columns: repeat(3, 1fr);
   padding-block: var(--sp-8);
 }
+/* Nunca a 1 columna: son números de 1-2 caracteres, entran de a 3 hasta en
+   el celular más chico, y romper el trío les saca fuerza retórica. */
 @media (max-width: 30em) {
-  .case__stats { grid-template-columns: 1fr; gap: var(--sp-5); }
+  .case__stats { gap: var(--sp-3); }
 }
+.case__stats--compact { padding-block: 0; }
 
 /* ---- Manifiesto ------------------------------------------------------------ */
 .manifesto {

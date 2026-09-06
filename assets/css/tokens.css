@@ -113,6 +113,7 @@
   /* ---- Layout ---------------------------------------------------------- */
   --container: 68rem;         /* 1088px */
   --container-narrow: 46rem;  /* 736px — texto de lectura */
+  --level-card-w: 20rem;      /* 320px — ancho de cada tarjeta del mapa de madurez */
   --gutter: clamp(1.25rem, 5vw, 2.5rem);
   --section-py: clamp(3.5rem, 8vw, 6.5rem);
   --header-h: 3.5rem;

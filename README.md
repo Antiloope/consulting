@@ -11,7 +11,7 @@ Se edita y se publica con `git push`.
 
 ```
 .
-├── index.html               ← toda la página. 11 secciones numeradas con comentarios.
+├── index.html               ← toda la página. 12 bloques numerados con comentarios (incl. 03b).
 ├── 404.html
 ├── robots.txt
 ├── .nojekyll                ← evita que GitHub Pages procese el repo con Jekyll
@@ -59,6 +59,7 @@ python3 -m http.server 4177 --bind 0.0.0.0 --directory .
 |---|---|
 | `bash scripts/size.sh` | Mide el peso crudo y gzip. Falla si pasa los 25 KB gzip. |
 | `bash scripts/shots.sh` | Capturas en viewports reales de mobile y desktop, en `.shots/`. Necesita el server levantado en el puerto 4177. |
+| `bash scripts/gen-images.sh` | Regenera `assets/img/og.png` y `apple-touch-icon.png` desde sus fuentes SVG (`scripts/og-image.svg`, `scripts/touch-icon.svg`). Solo macOS (usa `qlmanage`/`sips`). |
 
 `scripts/viewport.html` es sólo para `shots.sh`: mete el sitio en un iframe del
 ancho pedido, porque Chrome headless ignora el `<meta viewport>` y maquetaría
@@ -108,8 +109,7 @@ sacarle el prefijo `/consulting/` a `404.html`.
 ### Pendientes
 
 - [x] Datos de contacto cargados (mail, LinkedIn, URL)
-- [ ] Resolver los 4 `REVISAR` de `index.html` (ver `CONTENT.md § 3`)
-- [ ] Agregar `assets/img/og.png` (1200×630) — sin esto el link se comparte sin imagen
-- [ ] Agregar `assets/img/apple-touch-icon.png` (180×180)
+- [x] `assets/img/og.png` (1200×630) y `apple-touch-icon.png` (180×180) — regenerables con `scripts/gen-images.sh`
+- [ ] Resolver los 3 `REVISAR` restantes de `index.html` (ver `CONTENT.md § 3`)
 - [ ] Probar en iPhone real: sin scroll horizontal, CTA fija no tapa contenido
 - [ ] Lighthouse mobile ≥ 95 en las cuatro categorías

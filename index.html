@@ -16,7 +16,9 @@
 <meta property="og:title" content="Modernización tecnológica para PyMEs con software crítico">
 <meta property="og:description" content="Crecer adaptando el software a la velocidad del negocio.">
 <meta property="og:url" content="https://antiloope.github.io/consulting/">
-<meta property="og:image" content="https://antiloope.github.io/consulting/assets/img/og.png"><!-- TODO: falta subir la imagen -->
+<meta property="og:image" content="https://antiloope.github.io/consulting/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
 <meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
@@ -85,7 +87,7 @@
       </p>
 
       <div class="cluster hero__actions">
-        <a class="btn btn--primary" href="#contacto">Agendar 30 minutos</a>
+        <a class="btn btn--primary" href="#contacto">Pedir los 30 minutos</a>
         <a class="btn btn--ghost" href="#servicios">Ver intervenciones</a>
       </div>
 
@@ -136,6 +138,81 @@
   </section>
 
   <!-- ========================================================================
+       03b · COMPROMISO + ANTICIPO DE PRUEBA
+       El diferencial (precio fijo / alcance cerrado / sin dependencia) más un
+       adelanto comprimido del caso SIGES, en la misma sección: los dos
+       responden lo mismo antes de entrar al framework — "¿por qué vos, y hay
+       alguien real que ya lo haya probado?". El caso completo sigue en #caso;
+       .not-selling vive acá (se sacó de #modelo, que se queda con el detalle
+       contractual de las 3 tarjetas).
+       ======================================================================== -->
+  <section class="section section--alt" id="compromiso" aria-labelledby="compromiso-title">
+    <div class="container container--narrow">
+      <h2 class="statement reveal" id="compromiso-title">
+        Precio fijo. Alcance cerrado. <em>Sin dependencia.</em>
+      </h2>
+      <p class="statement statement--muted reveal">
+        Se compra un resultado en un plazo, no horas de consultor — y no vendo
+        el mantenimiento de lo que implemento.
+      </p>
+
+      <div class="not-selling reveal">
+        <p class="not-selling__label">Lo que no vendo</p>
+        <p class="not-selling__list">
+          Desarrollo a medida, staff augmentation, soporte IT, consultoría por hora.
+        </p>
+      </div>
+    </div>
+
+    <div class="container proof-teaser reveal">
+      <p class="lede proof-teaser__lede">
+        Ya pasó una vez: SIGES, una red de estaciones de servicio con sistema
+        legacy en Visual FoxPro.
+      </p>
+
+      <div class="case__stats case__stats--compact">
+        <div class="stat">
+          <p class="stat__value">5</p>
+          <p class="stat__label">developers en todo el equipo</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">2</p>
+          <p class="stat__label">conocían el núcleo del sistema</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">0</p>
+          <p class="stat__label">control de versiones al empezar</p>
+        </div>
+      </div>
+
+      <div class="compare compare--compact">
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Código repartido, sin control de versiones</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label compare__label--after">Después</p>
+            <p class="compare__after">Monorepo versionado con arquitectura limpia</p>
+          </div>
+        </div>
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Deploy estación por estación con TeamViewer</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label compare__label--after">Después</p>
+            <p class="compare__after">Deploy a toda la red en segundos desde el IDP</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="proof-teaser__link" href="#caso">Ver el caso completo: SIGES</a>
+    </div>
+  </section>
+
+  <!-- ========================================================================
        04 · FRAMEWORK — 4 fases
        ======================================================================== -->
   <section class="section" id="framework" aria-labelledby="framework-title">
@@ -171,9 +248,11 @@
   </section>
 
   <!-- ========================================================================
-       05 · MAPA DE MADUREZ — 5 niveles (00 a 04)
-       REVISAR: en el deck, los niveles 00 y 01 comparten descripción.
-       El texto de 00 de acá es una propuesta, cambiala. Ver CONTENT.md § 3.
+       05 · MAPA DE MADUREZ — matriz de 6 verticales × 5 niveles (00 a 04).
+       Una <li> por nivel; adentro, un <dl> con las 6 verticales. Se desliza
+       horizontal con scroll-snap nativo (sin JS) porque el contenido de cada
+       nivel necesita más ancho del que una grilla de 5 columnas puede darle
+       sin volverse ilegible. Ver CONTENT.md § 2 antes de agregar una vertical.
        ======================================================================== -->
   <section class="section section--alt" id="madurez" aria-labelledby="madurez-title">
     <div class="container">
@@ -181,38 +260,146 @@
         <p class="section__eyebrow">Mapa de madurez tecnológica</p>
         <h2 class="section__title" id="madurez-title">Dónde está hoy y a dónde puede llegar</h2>
         <p class="lede">
-          Cada organización es distinta. Con el diagnóstico inicial el objetivo es comprender
-          el estadío de madurez tecnológica actual y planificar a qué nuevo nivel se pretende llegar.
+          El nivel no se declara: se puntúa. Cada vertical se evalúa por separado contra
+          evidencia observable, y el estadío de la organización es el de su vertical más baja.
         </p>
       </div>
 
-      <ol class="levels reveal">
-        <li class="level" data-level="0">
-          <p class="level__num">00</p>
-          <h3 class="level__name">Ad hoc</h3>
-          <p class="level__desc">Sin versionado, deploys manuales, conocimiento tácito.</p>
-        </li>
-        <li class="level" data-level="1">
-          <p class="level__num">01</p>
-          <h3 class="level__name">Estabilización</h3>
-          <p class="level__desc">Versionado, ambientes, incidentes.</p>
-        </li>
-        <li class="level" data-level="2">
-          <p class="level__num">02</p>
-          <h3 class="level__name">Estandarización</h3>
-          <p class="level__desc">Stack, prácticas, lineamientos, ownership.</p>
-        </li>
-        <li class="level" data-level="3">
-          <p class="level__num">03</p>
-          <h3 class="level__name">Plataforma</h3>
-          <p class="level__desc">IDP, CI/CD, costos de infraestructura.</p>
-        </li>
-        <li class="level" data-level="4">
-          <p class="level__num">04</p>
-          <h3 class="level__name">Escalado</h3>
-          <p class="level__desc">SRE, métricas, on-call, SLA, soporte.</p>
-        </li>
-      </ol>
+      <div class="levels-wrap reveal">
+        <ol class="levels" tabindex="0" aria-label="Niveles de madurez, del 00 al 04. Cada tarjeta puntúa las mismas seis verticales.">
+          <li class="level" data-level="0">
+            <p class="level__num">00</p>
+            <h3 class="level__name">Ad hoc</h3>
+            <p class="level__thesis">El conocimiento vive en personas. Nada es repetible.</p>
+            <dl class="level__verticals">
+              <div><dt>Código y cambios</dt><dd>Código disperso, copias locales, historial poco confiable.</dd></div>
+              <div><dt>Build y deploy</dt><dd>Deploy manual y no documentado. Una sola persona sabe hacerlo.</dd></div>
+              <div><dt>Infraestructura y ambientes</dt><dd>Servidores mascota, cambios directos en producción, sin paridad.</dd></div>
+              <div><dt>Observabilidad e incidentes</dt><dd>Se entera el cliente primero. Logs sueltos en cada máquina.</dd></div>
+              <div><dt>Ownership y prácticas</dt><dd>Nadie sabe con certeza quién responde por qué sistema.</dd></div>
+              <div><dt>Seguridad y accesos</dt><dd>Credenciales en el código, usuarios compartidos, accesos sin revocar.</dd></div>
+            </dl>
+            <p class="level__note">Este nivel no se aprueba: es el punto de partida a abandonar.</p>
+          </li>
+
+          <li class="level" data-level="1">
+            <p class="level__num">01</p>
+            <h3 class="level__name">Estabilización</h3>
+            <p class="level__thesis">Dejar de romper. Reversibilidad y visibilidad.</p>
+            <dl class="level__verticals">
+              <div><dt>Código y cambios</dt><dd>Todo en repositorios, historial completo, estrategia de branching acordada.</dd></div>
+              <div><dt>Build y deploy</dt><dd>Deploy reproducible y documentado. Rollback probado, no teórico.</dd></div>
+              <div><dt>Infraestructura y ambientes</dt><dd>Ambientes separados y estables. Ningún cambio manual sin registro.</dd></div>
+              <div><dt>Observabilidad e incidentes</dt><dd>Logs centralizados, alertas básicas, incidentes registrados.</dd></div>
+              <div><dt>Ownership y prácticas</dt><dd>Se sabe quién toca qué. Hay un responsable identificable por sistema.</dd></div>
+              <div><dt>Seguridad y accesos</dt><dd>Sin credenciales en el repositorio. Accesos nominales y revocables.</dd></div>
+            </dl>
+            <div class="level__gate">
+              <p class="level__gate-label">Para llegar acá</p>
+              <ul>
+                <li>100% del código versionado</li>
+                <li>Rollback ejecutado con éxito en menos de 1 hora</li>
+                <li>Cero cambios manuales en producción sin registro</li>
+                <li>El equipo se entera del incidente antes que el cliente</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="level" data-level="2">
+            <p class="level__num">02</p>
+            <h3 class="level__name">Estandarización</h3>
+            <p class="level__thesis">Dejar de decidir lo mismo cada vez. Repetibilidad y dueños.</p>
+            <dl class="level__verticals">
+              <div><dt>Código y cambios</dt><dd>Convenciones escritas, review obligatorio, versionado semántico.</dd></div>
+              <div><dt>Build y deploy</dt><dd>CI automatizado. El deploy lo ejecuta el pipeline, no una persona.</dd></div>
+              <div><dt>Infraestructura y ambientes</dt><dd>IaC en el core de la infra. Paridad razonable entre ambientes.</dd></div>
+              <div><dt>Observabilidad e incidentes</dt><dd>Métricas y dashboards por servicio. Postmortems sin culpables.</dd></div>
+              <div><dt>Ownership y prácticas</dt><dd>Cada servicio tiene owner nombrado. Lineamientos técnicos escritos.</dd></div>
+              <div><dt>Seguridad y accesos</dt><dd>Gestión de secretos centralizada. Permisos por rol, mínimo privilegio.</dd></div>
+            </dl>
+            <div class="level__gate">
+              <p class="level__gate-label">Para llegar acá</p>
+              <ul>
+                <li>Lead time de commit a producción menor a 1 semana</li>
+                <li>Más del 80% de los servicios en el stack estándar</li>
+                <li>100% de los servicios con owner nombrado</li>
+                <li>Un developer nuevo llega a su primer cambio en producción en menos de 1 semana</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="level" data-level="3">
+            <p class="level__num">03</p>
+            <h3 class="level__name">Plataforma</h3>
+            <p class="level__thesis">Dejar de tener un cuello de botella. El camino correcto es el más fácil.</p>
+            <dl class="level__verticals">
+              <div><dt>Código y cambios</dt><dd>Templates y scaffolding: un servicio nuevo nace bien configurado.</dd></div>
+              <div><dt>Build y deploy</dt><dd>Autoservicio: cualquier developer despliega sin abrir un ticket a infraestructura.</dd></div>
+              <div><dt>Infraestructura y ambientes</dt><dd>Ambientes efímeros on-demand. Costo atribuido por equipo o producto.</dd></div>
+              <div><dt>Observabilidad e incidentes</dt><dd>Telemetría estándar incluida por default en la plantilla del servicio.</dd></div>
+              <div><dt>Ownership y prácticas</dt><dd>Contrato explícito entre plataforma y producto. Catálogo de servicios.</dd></div>
+              <div><dt>Seguridad y accesos</dt><dd>Controles embebidos en el pipeline: escaneo de dependencias y políticas.</dd></div>
+            </dl>
+            <div class="level__gate">
+              <p class="level__gate-label">Para llegar acá</p>
+              <ul>
+                <li>Servicio nuevo en producción en menos de 1 día, sin intervención de infraestructura</li>
+                <li>Frecuencia de deploy diaria</li>
+                <li>Costo de infraestructura atribuible por equipo</li>
+                <li>Más del 90% de los deploys pasan por el camino estándar</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="level" data-level="4">
+            <p class="level__num">04</p>
+            <h3 class="level__name">Escalado</h3>
+            <p class="level__thesis">Dejar de operar por intuición. Previsibilidad y compromisos explícitos.</p>
+            <dl class="level__verticals">
+              <div><dt>Código y cambios</dt><dd>Cambios chicos y continuos, feature flags, deploy desacoplado del release.</dd></div>
+              <div><dt>Build y deploy</dt><dd>Deploy on-demand con entrega progresiva: canary, blue-green.</dd></div>
+              <div><dt>Infraestructura y ambientes</dt><dd>Capacidad planificada, autoscaling, optimización de costo continua.</dd></div>
+              <div><dt>Observabilidad e incidentes</dt><dd>SLI y SLO medidos, error budget que influye el roadmap, on-call formal.</dd></div>
+              <div><dt>Ownership y prácticas</dt><dd>Equipos autónomos, responsables de su servicio de punta a punta.</dd></div>
+              <div><dt>Seguridad y accesos</dt><dd>Auditoría continua, trazabilidad de cambios, cumplimiento demostrable.</dd></div>
+            </dl>
+            <div class="level__gate">
+              <p class="level__gate-label">Para llegar acá</p>
+              <ul>
+                <li>SLOs definidos y medidos en los servicios críticos</li>
+                <li>MTTR menor a 1 hora</li>
+                <li>Tasa de fallo de cambios por debajo del 15%</li>
+                <li>On-call rotativo, con runbooks y compensación definida</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+        <p class="levels-hint">Los niveles se desplazan en horizontal.</p>
+      </div>
+
+      <div class="grid grid--3 model-rules reveal">
+        <div class="model-rule">
+          <h3 class="model-rule__title">El nivel lo fija la vertical más baja</h3>
+          <p class="model-rule__body">
+            No se promedia. Una organización con pipelines maduros y sin observabilidad
+            opera, en la práctica, como una organización sin observabilidad.
+          </p>
+        </div>
+        <div class="model-rule">
+          <h3 class="model-rule__title">No se saltean niveles</h3>
+          <p class="model-rule__body">
+            Un portal de autoservicio construido sobre doce stacks distintos no es
+            plataforma: es caos cementado y más caro de revertir.
+          </p>
+        </div>
+        <div class="model-rule">
+          <h3 class="model-rule__title">Se puntúa contra evidencia, no contra respuestas</h3>
+          <p class="model-rule__body">
+            La pregunta "¿tienen CI/CD?" siempre da que sí. Cronometrar un deploy real,
+            en cambio, da un número.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -234,7 +421,7 @@
         <details class="disclosure" open>
           <summary class="disclosure__summary">
             <span class="disclosure__titles">
-              <span class="disclosure__name">Technology Assessment</span>
+              <h3 class="disclosure__name">Technology Assessment</h3>
               <span class="disclosure__meta">2–4 semanas · Oferta de entrada</span>
             </span>
             <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
@@ -257,7 +444,7 @@
         <details class="disclosure">
           <summary class="disclosure__summary">
             <span class="disclosure__titles">
-              <span class="disclosure__name">Engineering Transformation</span>
+              <h3 class="disclosure__name">Engineering Transformation</h3>
               <span class="disclosure__meta">2–4 meses</span>
             </span>
             <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
@@ -289,7 +476,7 @@
         <details class="disclosure">
           <summary class="disclosure__summary">
             <span class="disclosure__titles">
-              <span class="disclosure__name">Developer Platform</span>
+              <h3 class="disclosure__name">Developer Platform</h3>
               <span class="disclosure__meta">3 meses</span>
             </span>
             <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
@@ -310,7 +497,7 @@
         <details class="disclosure">
           <summary class="disclosure__summary">
             <span class="disclosure__titles">
-              <span class="disclosure__name">Reliability &amp; Incident</span>
+              <h3 class="disclosure__name">Reliability &amp; Incident</h3>
               <span class="disclosure__meta">12 semanas</span><!-- REVISAR: el ejemplo de proyecto usa 8 semanas -->
             </span>
             <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
@@ -345,7 +532,7 @@
         <details class="disclosure">
           <summary class="disclosure__summary">
             <span class="disclosure__titles">
-              <span class="disclosure__name">Legacy Modernization</span>
+              <h3 class="disclosure__name">Legacy Modernization</h3>
               <span class="disclosure__meta">Por etapa · Especialización</span>
             </span>
             <svg class="disclosure__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
@@ -399,7 +586,7 @@
       <div class="compare reveal">
         <div class="compare__head">
           <p class="compare__label">Antes</p>
-          <p class="compare__label">Después</p>
+          <p class="compare__label compare__label--after">Después</p>
         </div>
 
         <div class="compare__row">
@@ -408,7 +595,7 @@
             <p class="compare__before">Código repartido, sin control de versiones</p>
           </div>
           <div class="compare__side">
-            <p class="compare__label">Después</p>
+            <p class="compare__label compare__label--after">Después</p>
             <p class="compare__after">Monorepo versionado con arquitectura limpia</p>
           </div>
         </div>
@@ -419,7 +606,7 @@
             <p class="compare__before">Deploy estación por estación con TeamViewer</p>
           </div>
           <div class="compare__side">
-            <p class="compare__label">Después</p>
+            <p class="compare__label compare__label--after">Después</p>
             <p class="compare__after">Deploy a toda la red en segundos desde el IDP</p>
           </div>
         </div>
@@ -430,7 +617,7 @@
             <p class="compare__before">Producción como ambiente de prueba</p>
           </div>
           <div class="compare__side">
-            <p class="compare__label">Después</p>
+            <p class="compare__label compare__label--after">Después</p>
             <p class="compare__after">Framework de testing y ambientes bajos</p>
           </div>
         </div>
@@ -441,7 +628,7 @@
             <p class="compare__before">Poca visibilidad de la operación</p>
           </div>
           <div class="compare__side">
-            <p class="compare__label">Después</p>
+            <p class="compare__label compare__label--after">Después</p>
             <p class="compare__after">Observabilidad de toda la red con Grafana</p>
           </div>
         </div>
@@ -452,7 +639,7 @@
             <p class="compare__before">Conocimiento concentrado en dos personas</p>
           </div>
           <div class="compare__side">
-            <p class="compare__label">Después</p>
+            <p class="compare__label compare__label--after">Después</p>
             <p class="compare__after">Estándares, documentación y ownership del equipo</p>
           </div>
         </div>
@@ -547,13 +734,6 @@
           <p class="card__body">No vendo el mantenimiento de lo que implemento.</p>
         </div>
       </div>
-
-      <div class="not-selling reveal">
-        <p class="not-selling__label">Lo que no vendo</p>
-        <p class="not-selling__list">
-          Desarrollo a medida, staff augmentation, soporte IT, consultoría por hora.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -569,8 +749,8 @@
       </p>
 
       <div class="cluster reveal" style="margin-top: var(--sp-6)">
-        <a class="btn btn--primary" href="mailto:rodrigopizarro1234@gmail.com?subject=Consulta%20-%20Modernizaci%C3%B3n%20tecnol%C3%B3gica">
-          Escribir un mail
+        <a class="btn btn--primary" href="mailto:rodrigopizarro1234@gmail.com?subject=Consulta%20-%20Modernizaci%C3%B3n%20tecnol%C3%B3gica&amp;body=Empresa%3A%20%0ACantidad%20de%20developers%3A%20%0AQu%C3%A9%20est%C3%A1%20pasando%20hoy%3A%20%0A%0A">
+          Pedir los 30 minutos
         </a>
       </div>
 
@@ -601,7 +781,7 @@
 
 <!-- CTA fija de mobile -->
 <div class="cta-bar" data-cta-bar>
-  <a class="btn btn--primary" href="#contacto">Agendar 30 minutos</a>
+  <a class="btn btn--primary" href="#contacto">Pedir los 30 minutos</a>
 </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>

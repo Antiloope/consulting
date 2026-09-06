@@ -13,21 +13,44 @@
   var header = document.querySelector('[data-header]');
   var hero = document.querySelector('[data-hero]');
   var ctaBar = document.querySelector('[data-cta-bar]');
+  var contacto = document.getElementById('contacto');
 
-  /* ---- Header sólido y CTA fija: ambos dependen de haber pasado el hero.
-     Un solo observer para las dos cosas.
-     El rootMargin negativo arriba equivale al alto del header: el hero deja
-     de "intersectar" justo cuando su borde inferior toca la barra. ----- */
-  if (hero && (header || ctaBar)) {
-    var headerH = parseFloat(
-      getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-    ) * 16 || 56;
+  /* El rootMargin negativo arriba equivale al alto del header: el hero deja
+     de "intersectar" justo cuando su borde inferior toca la barra. Lo usan
+     el header sólido y la CTA fija, así que se calcula una sola vez. */
+  var headerH = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+  ) * 16 || 56;
+  var pastHeroMargin = '-' + headerH + 'px 0px 0px 0px';
+
+  /* ---- Header sólido: depende de haber pasado el hero. --------------- */
+  if (hero && header) {
+    new IntersectionObserver(function (entries) {
+      header.dataset.scrolled = String(!entries[0].isIntersecting);
+    }, { rootMargin: pastHeroMargin }).observe(hero);
+  }
+
+  /* ---- CTA fija: visible después del hero, pero no mientras el visitante
+     ya está parado en #contacto (ahí el botón real está a la vista y la
+     barra solo taparía contenido). Dos observers, un solo estado derivado. */
+  if (hero && ctaBar) {
+    var pastHero = false;
+    var inContacto = false;
+    var syncCtaBar = function () {
+      ctaBar.dataset.visible = String(pastHero && !inContacto);
+    };
 
     new IntersectionObserver(function (entries) {
-      var past = !entries[0].isIntersecting;
-      if (header) header.dataset.scrolled = String(past);
-      if (ctaBar) ctaBar.dataset.visible = String(past);
-    }, { rootMargin: '-' + headerH + 'px 0px 0px 0px' }).observe(hero);
+      pastHero = !entries[0].isIntersecting;
+      syncCtaBar();
+    }, { rootMargin: pastHeroMargin }).observe(hero);
+
+    if (contacto) {
+      new IntersectionObserver(function (entries) {
+        inContacto = entries[0].isIntersecting;
+        syncCtaBar();
+      }, { rootMargin: '0px 0px -20% 0px' }).observe(contacto);
+    }
   }
 
   /* ---- Aparición progresiva de bloques -------------------------------- */

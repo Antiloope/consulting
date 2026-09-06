@@ -8,13 +8,14 @@ de bloque numerado, en el mismo orden en que se lee la página:
 | 01 | `#top` | Hero | Promesa + CTA. Es lo único que ve el 60 % de las visitas. |
 | 02 | `#senales` | Lo que se escucha | 7 citas. El prospecto se reconoce acá. |
 | 03 | `#problema` | El problema | Reencuadre en dos frases. |
+| 03b | `#compromiso` | Compromiso + anticipo de prueba | El diferencial (precio fijo/alcance cerrado/sin dependencia) grande, más 2 filas de SIGES antes de entrar al framework. `.not-selling` vive acá, no en `#modelo`. |
 | 04 | `#framework` | Framework | Las 4 fases del método. |
-| 05 | `#madurez` | Mapa de madurez | Los 5 estadíos (00–04). |
+| 05 | `#madurez` | Mapa de madurez | Matriz de 6 verticales × 5 niveles (00–04), puntuada contra evidencia. |
 | 06 | `#servicios` | Catálogo | 5 intervenciones, cada una en un `<details>`. |
-| 07 | `#caso` | Caso SIGES | Métricas + tabla antes/después. |
+| 07 | `#caso` | Caso SIGES | Métricas + tabla antes/después completa (5 filas). |
 | 08 | `#manifiesto` | Manifiesto | El diferencial en una frase. |
 | 09 | `#anatomia` | Anatomía | Timeline de ejemplo. |
-| 10 | `#modelo` | Modelo de trabajo | Cómo se contrata + lo que no se vende. |
+| 10 | `#modelo` | Modelo de trabajo | Cómo se contrata, en detalle (las 3 tarjetas). |
 | 11 | `#contacto` | Contacto | CTA final. |
 
 Si agregás o sacás una sección, actualizá también los links del `<nav class="site-nav">`
@@ -47,6 +48,16 @@ Duplicar un bloque `<details class="disclosure">` completo dentro de
 solo uno quede abierto a la vez. El primero tiene `open`; sacáselo si querés que
 arranquen todos cerrados.
 
+### Agregar una vertical al mapa de madurez
+
+Cada una de las 5 tarjetas `<li class="level">` de `#madurez` tiene un `<dl
+class="level__verticals">` con las mismas 6 verticales, en el mismo orden. Para
+agregar una vertical nueva hay que sumar un `<div><dt>…</dt><dd>…</dd></div>` a
+**las 5 tarjetas**, en la misma posición, con la descripción de esa vertical en
+cada nivel (00 a 04). No hay atajo: la matriz solo funciona si las 6 filas están
+completas en las 5 columnas. Definí primero qué evidencia la puntúa (ver los
+"Reglas del modelo" al final de la sección) antes de escribir las 5 descripciones.
+
 ### Agregar una fila a la tabla antes/después
 
 Duplicar un `<div class="compare__row">`. En mobile se apila como par etiquetado;
@@ -71,17 +82,18 @@ Borrar el bloque `@media (prefers-color-scheme: dark)` al final de
 
 ## § 3 · Pendientes marcados con `REVISAR` en el HTML
 
-El deck original tenía tres puntos ambiguos o inconsistentes. Están marcados con
-comentarios `REVISAR` en `index.html`:
+El deck original tenía cuatro puntos ambiguos o inconsistentes. Quedan tres sin
+resolver, marcados con comentarios `REVISAR` en `index.html`:
 
 ```bash
 grep -n "REVISAR\|TODO" index.html
 ```
 
-1. **Nivel 00 del mapa de madurez.** En el deck, los niveles `00 Ad hoc` y
-   `01 Estabilización` comparten la misma descripción ("Versionado, ambientes, incidentes").
-   Puse *"Sin versionado, deploys manuales, conocimiento tácito"* como propuesta para el 00.
-   Cambiala por la real.
+1. ~~**Nivel 00 del mapa de madurez.**~~ Resuelto: `#madurez` ya no es la
+   transcripción del deck, es una matriz propia (6 verticales × 5 niveles,
+   puntuada contra evidencia, con criterio de salida por nivel). El 00 tiene
+   tesis y las seis descripciones propias, distintas del 01. Ver § 2 abajo para
+   agregar una vertical nueva.
 
 2. **Duración de Reliability & Incident.** El catálogo dice **12 semanas** y el
    ejemplo de "Anatomía de un proyecto" usa **8 semanas**. Definir cuál va.
@@ -92,10 +104,10 @@ grep -n "REVISAR\|TODO" index.html
 4. **Rangos de la timeline.** El deck listaba "SEMANAS 2" y "SEMANAS 8" sin el rango
    completo. Quedaron como *Semanas 2–7* y *Semana 8*. Confirmar.
 
-Además, el deck tenía una slide sin contenido con los títulos
-*"¿En qué consisten los niveles?"* y *"Ejemplos de procesos de transición de estadíos"*.
-No está en la página. Si esa idea se desarrolla, el lugar natural es después de
-`#madurez`, como un bloque de `.disclosure` por nivel.
+La slide sin contenido del deck (*"¿En qué consisten los niveles?"* / *"Ejemplos
+de procesos de transición de estadíos"*) ya está cubierta: cada tarjeta de
+`#madurez` explica en qué consiste su nivel (tesis + las 6 verticales) y el
+criterio de salida hace de "ejemplo de transición". No hace falta un bloque aparte.
 
 ---
 

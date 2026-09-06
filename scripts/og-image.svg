@@ -1,0 +1,35 @@
+<!--
+  Fuente del og:image (assets/img/og.png, 1200×630). Regenerar con
+  `bash scripts/gen-images.sh` tras editar.
+
+  El canvas es CUADRADO (1200×1200), no 1200×630: `qlmanage` (el rasterizador
+  que usa el script) reescala un SVG no cuadrado con un factor que no es 1:1
+  ni documentado. Con un canvas cuadrado renderiza a escala exacta 1:1, así
+  que el diseño real vive centrado en la banda de 630px (y de 285 a 915) y
+  gen-images.sh recorta esa banda del cuadrado resultante. No cambiar a un
+  viewBox de 1200×630 sin volver a resolver ese problema.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <rect width="1200" height="1200" fill="#0f0f0f"/>
+
+  <text x="80" y="461" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif"
+        font-size="24" font-weight="600" letter-spacing="2.5" fill="#a5a5a5">
+    CONSULTORÍA DE TECNOLOGÍA · CÓRDOBA, ARGENTINA
+  </text>
+
+  <text font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif"
+        font-size="64" font-weight="700" letter-spacing="-1.5" fill="#fcfcfc">
+    <tspan x="80" y="557">Modernización tecnológica</tspan>
+    <tspan x="80" y="633">para PyMEs con</tspan>
+    <tspan x="80" y="709">software <tspan fill="#4d9bf0">crítico</tspan></tspan>
+  </text>
+
+  <text x="80" y="797" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif"
+        font-size="30" font-weight="600" fill="#fcfcfc">
+    <tspan fill="#4d9bf0">/</tspan> Rodrigo Pizarro
+  </text>
+  <text x="80" y="837" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif"
+        font-size="22" font-weight="400" fill="#a5a5a5">
+    Precio fijo · Alcance cerrado · Sin dependencia
+  </text>
+</svg>

@@ -218,9 +218,18 @@
 .cta-bar[data-visible="true"] { transform: translateY(0); }
 .cta-bar .btn { width: 100%; }
 
-@media (min-width: 48em) { .cta-bar { display: none; } }
+/* En tablet (donde antes no había ni nav ni CTA) el botón deja de estirarse
+   de punta a punta: se centra a un ancho de botón normal. */
+@media (min-width: 40em) {
+  .cta-bar { display: flex; justify-content: center; }
+  .cta-bar .btn { width: auto; min-width: 16rem; }
+}
+
+/* Se oculta recién cuando aparece el nav de anclas (64em), no antes: entre
+   48em y 64em (tablet) no hay ni nav ni CTA fija si se corta acá. */
+@media (min-width: 64em) { .cta-bar { display: none; } }
 
 /* Espacio al final para que la CTA fija no tape el footer */
-@media (max-width: 47.99em) {
+@media (max-width: 63.99em) {
   .site-footer { padding-bottom: calc(var(--sp-20) + env(safe-area-inset-bottom)); }
 }

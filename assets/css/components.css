@@ -114,17 +114,53 @@
   color: var(--text-muted);
   line-height: var(--lh-normal);
 }
-/* ---- Escala de madurez ---------------------------------------------------- */
-.levels { display: grid; gap: var(--sp-3); grid-template-columns: 1fr; }
-@media (min-width: 48em) { .levels { grid-template-columns: repeat(5, 1fr); } }
+/* ---- Escala de madurez: matriz de niveles ----------------------------------
+   Una <li> por nivel (00–04). Cada una puntúa las mismas 6 verticales, así
+   que necesita más ancho del que una grilla de 5 columnas puede dar sin
+   volverse ilegible: se desliza horizontal con scroll-snap nativo, sin JS.
+   `tabindex` en el <ol> lo hace enfocable y scrolleable con flechas.
+   ---------------------------------------------------------------------------- */
+.levels-wrap { position: relative; }
+.levels {
+  display: flex;
+  gap: var(--sp-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--gutter);
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 0 var(--gutter) var(--sp-2);
+}
+.levels:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Pista de que hay más para desplazar: se desvanece contra el fondo real
+   de la sección (--bg-alt acá; ver .section--invert más abajo). */
+.levels-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: var(--sp-2);
+  width: var(--sp-10);
+  /* Se desvanece contra --bg-alt porque #madurez usa .section--alt.
+     Si esta matriz se reutiliza en un contexto distinto, pisar este valor. */
+  background: linear-gradient(to right, transparent, var(--bg-alt));
+  pointer-events: none;
+}
+
+.levels-hint {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+}
 
 .level {
+  flex: 0 0 var(--level-card-w);
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-2);
-  padding: var(--sp-4);
+  gap: var(--sp-3);
+  padding: var(--sp-5);
   border: var(--border-width) solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   background: var(--surface);
   /* Progresión visual: cada nivel un poco más "encendido" */
   border-top: 3px solid var(--border-strong);
@@ -133,14 +169,81 @@
 .level[data-level="2"] { border-top-color: color-mix(in srgb, var(--accent) 50%, var(--border-strong)); }
 .level[data-level="3"] { border-top-color: color-mix(in srgb, var(--accent) 75%, var(--border-strong)); }
 .level[data-level="4"] { border-top-color: var(--accent); }
+
 .level__num {
   font-family: var(--font-mono);
-  font-size: var(--fs-xs);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
   color: var(--text-subtle);
-  letter-spacing: var(--ls-wide);
 }
-.level__name { font-size: var(--fs-base); font-weight: var(--fw-semibold); }
-.level__desc { font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-normal); }
+.level[data-level="1"] .level__num { color: color-mix(in srgb, var(--accent-text) 40%, var(--text-subtle)); }
+.level[data-level="2"] .level__num { color: color-mix(in srgb, var(--accent-text) 65%, var(--text-subtle)); }
+.level[data-level="3"] .level__num { color: color-mix(in srgb, var(--accent-text) 85%, var(--text-subtle)); }
+.level[data-level="4"] .level__num { color: var(--accent-text); }
+
+.level__name { font-size: var(--fs-lg); font-weight: var(--fw-semibold); margin-top: calc(var(--sp-1) * -1); }
+.level__thesis { font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-normal); }
+
+.level__verticals {
+  display: grid;
+  gap: var(--sp-3);
+  margin: 0;
+  padding-top: var(--sp-3);
+  border-top: var(--border-width) solid var(--border);
+}
+.level__verticals dt {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.level__verticals dd {
+  margin: var(--sp-1) 0 0;
+  font-size: var(--fs-sm);
+  color: var(--text);
+  line-height: var(--lh-normal);
+}
+
+.level__note {
+  font-size: var(--fs-xs);
+  font-style: italic;
+  color: var(--text-subtle);
+  margin-top: auto;
+  padding-top: var(--sp-2);
+}
+
+.level__gate {
+  margin-top: auto;
+  padding: var(--sp-3) var(--sp-4);
+  border: var(--border-width) dashed var(--border-strong);
+  border-radius: var(--radius);
+}
+.level__gate-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin: 0 0 var(--sp-2);
+}
+.level__gate ul { margin: 0; padding-left: 1.1em; display: grid; gap: var(--sp-1); }
+.level__gate li { font-size: var(--fs-xs); color: var(--text-muted); line-height: var(--lh-normal); }
+
+/* ---- Reglas del modelo de madurez ------------------------------------------ */
+.model-rules {
+  margin-top: var(--sp-10);
+  padding-top: var(--sp-6);
+  border-top: 3px solid var(--border-strong);
+}
+.model-rule__title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-tight);
+  margin: 0 0 var(--sp-2);
+}
+.model-rule__body { font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-normal); margin: 0; }
 
 /* ---- Timeline ------------------------------------------------------------- */
 .timeline { display: grid; gap: 0; }
@@ -201,7 +304,17 @@
   color: var(--text-subtle);
 }
 .compare__before { font-size: var(--fs-md); color: var(--text-muted); }
-.compare__after  { font-size: var(--fs-md); color: var(--text); font-weight: var(--fw-medium); }
+/* El lado "después" es el que vende: más grande y con más peso que el
+   "antes", no solo un color distinto. */
+.compare__after  { font-size: var(--fs-lg); color: var(--text); font-weight: var(--fw-semibold); }
+.compare__label--after { color: var(--accent-text); }
+
+/* Versión resumida: 1-2 filas como anticipo, sin la caja ni el padding
+   completo (el caso completo con las 5 filas sigue en #caso). */
+.compare--compact .compare__row {
+  padding: var(--sp-3) var(--sp-4);
+  border-style: dashed;
+}
 
 @media (min-width: 48em) {
   .compare__row {

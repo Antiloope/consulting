@@ -90,8 +90,19 @@ problemas, pero no sabemos por dónde empezar".
 
 Cuatro fases: Diagnóstico → Planificación → Ejecución → Resultados finales.
 
-Cinco estadíos de madurez: `00` Ad hoc · `01` Estabilización · `02` Estandarización ·
-`03` Plataforma · `04` Escalado.
+**Mapa de madurez — metodología propia, más allá de la transcripción del deck.**
+Cinco estadíos (`00` Ad hoc · `01` Estabilización · `02` Estandarización · `03`
+Plataforma · `04` Escalado), pero el nivel de la organización **no se declara, se
+puntúa**: se evalúan seis verticales por separado contra evidencia observable —
+Código y cambios, Build y deploy, Infraestructura y ambientes, Observabilidad e
+incidentes, Ownership y prácticas, Seguridad y accesos — y el estadío real es el de
+la vertical más atrasada, no un promedio. Cada nivel a partir del 01 tiene un
+criterio de salida explícito y medible (ej.: "rollback ejecutado con éxito en menos
+de 1 hora" para pasar a Estabilización). Reglas del modelo: el nivel lo fija la
+vertical más baja; no se saltean niveles; se puntúa contra evidencia, no contra
+respuestas ("¿tienen CI/CD?" siempre da que sí — cronometrar un deploy real da un
+número). Esta matriz vive en `index.html` `#madurez` y es la fuente de verdad;
+`docs/deck-source.md` documenta solo la versión original del deck, ya superada.
 
 ### Restricciones técnicas del sitio
 
@@ -110,8 +121,9 @@ Cinco estadíos de madurez: `00` Ad hoc · `01` Estabilización · `02` Estandar
 Estas ambigüedades vienen del deck original y **no deben resolverse inventando el valor**.
 Están marcadas con `REVISAR` en `index.html`:
 
-1. **Nivel 00 del mapa de madurez.** En el deck, `00 Ad hoc` y `01 Estabilización`
-   comparten descripción. El texto actual del 00 es una propuesta, no un dato confirmado.
+1. ~~Nivel 00 del mapa de madurez.~~ **Resuelto (2026-09-06).** La matriz de
+   madurez nueva (ver arriba) le da al 00 una tesis y seis descripciones propias,
+   distintas de las del 01 en las seis verticales. Ya no hay ambigüedad.
 2. **Duración de Reliability & Incident.** El catálogo dice 12 semanas; el ejemplo de
    "Anatomía de un proyecto" usa 8. Sin resolver.
 3. **Duración del Technology Assessment.** El catálogo dice 2–4 semanas; la slide de

@@ -118,9 +118,10 @@ Solo tres, todos `min-width` (mobile-first). En `em` para que respeten el zoom d
 | `.card` `.card--numbered` | Cualquier bloque en grilla |
 | `.quote` | Citas de cliente |
 | `.stat` | Métricas grandes |
-| `.level` | Escalones del mapa de madurez |
+| `.level` `.level__gate` `.model-rules` | Matriz de madurez: tarjetas por nivel con scroll-snap horizontal (sin JS) |
 | `.timeline` | Cronogramas |
-| `.compare` | Tabla antes / después |
+| `.compare` `.compare--compact` | Tabla antes/después. El lado "después" pesa más (`.compare__after`, `.compare__label--after`) — es el que vende. `--compact` es el anticipo de 1-2 filas en `#compromiso`; el caso completo va sin el modificador. |
+| `.proof-teaser` `.case__stats--compact` | Anticipo comprimido de un caso, para meter antes en la página sin duplicar la sección completa |
 | `.checklist` | Listas de entregables |
 | `.disclosure` | Servicio expandible (`<details>` nativo) |
 | `.reveal` | Aparición al scrollear |
