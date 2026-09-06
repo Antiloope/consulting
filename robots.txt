@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: reemplazar por el dominio real
-Sitemap: https://TU-DOMINIO.com/sitemap.xml
+Sitemap: https://antiloope.github.io/consulting/sitemap.xml

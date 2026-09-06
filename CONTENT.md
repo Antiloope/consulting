@@ -22,22 +22,19 @@ en el header (el scroll-spy los toma de ahí automáticamente).
 
 ---
 
-## § 1 · Placeholders obligatorios
+## § 1 · Datos de contacto y URL
 
-Buscá y reemplazá en todo el repo antes de publicar:
+Ya están cargados. Si alguno cambia, estos son todos los lugares donde aparece:
 
-```bash
-grep -rn "TU-DOMINIO\|TU-USUARIO" --include="*.html" --include="*.txt" .
-```
-
-| Placeholder | Dónde | Reemplazar por |
+| Dato | Valor actual | Dónde |
 |---|---|---|
-| `TU-DOMINIO.com` | `index.html` (canonical, OG, JSON-LD, mailto), `robots.txt` | Dominio real |
-| `TU-USUARIO` | `index.html` (LinkedIn) | Usuario de LinkedIn |
-| `hola@TU-DOMINIO.com` | `index.html` (2 lugares + mailto del CTA) | Email de contacto |
+| Email | `rodrigopizarro1234@gmail.com` | `index.html`: `mailto` del botón, `href` del link, texto del link |
+| LinkedIn | `pizarrorodrigo` | `index.html`: `href` del link y su texto |
+| URL del sitio | `https://antiloope.github.io/consulting/` | `index.html`: `canonical`, `og:url`, `og:image`, JSON-LD · `robots.txt` · `sitemap.xml` · rutas de `404.html` |
 
-El deck original también tenía estos datos como placeholder (`email@dominio.com`,
-`linkedin.com/in/usuario`), así que hay que definirlos igual.
+Cuando tengas dominio propio conviene pasar el contacto a un mail del dominio
+(`hola@…`) y no al Gmail personal: queda mejor en la propuesta y te deja migrar
+sin tocar la página.
 
 ---
 

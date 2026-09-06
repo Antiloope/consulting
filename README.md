@@ -66,22 +66,32 @@ todo a 980 px.
 
 ---
 
-## Deploy en GitHub Pages
+## Deploy
 
-1. Crear el repo remoto y pushear:
+**En producción:** <https://antiloope.github.io/consulting/> · repo `Antiloope/consulting`
 
-```bash
-git remote add origin git@github.com:USUARIO/consultoria.git && git push -u origin main
-```
-
-2. En GitHub: **Settings → Pages → Source: GitHub Actions**.
-   El workflow `deploy.yml` sube la carpeta tal cual en cada push a `main`.
-
-3. Dominio propio (opcional): agregar un archivo `CNAME` en la raíz con el dominio,
-   y apuntar el DNS a GitHub Pages.
+El workflow `deploy.yml` sube la carpeta tal cual en cada push a `main`.
+Requisito único, una sola vez: en GitHub, **Settings → Pages → Source: GitHub Actions**.
 
 > Alternativa sin Action: **Settings → Pages → Source: Deploy from a branch → `main` / `root`**.
 > En ese caso podés borrar `.github/workflows/deploy.yml`. El `.nojekyll` es necesario en ambos casos.
+
+### Ojo: es un *project page*, no un *user page*
+
+El sitio se sirve en `/consulting/`, no en la raíz del dominio. Por eso:
+
+- `index.html` usa **rutas relativas** (`assets/css/…`). No las pases a absolutas.
+- `404.html` usa rutas **absolutas con el prefijo** `/consulting/`, porque un 404
+  puede aparecer a cualquier profundidad y las relativas romperían.
+- Si renombrás el repo, hay que actualizar: las 4 rutas de `404.html`, el
+  `canonical` / `og:url` / `og:image` / JSON-LD de `index.html`, `robots.txt`
+  y `sitemap.xml`.
+
+### Dominio propio
+
+Cuando lo tengas: agregar un archivo `CNAME` en la raíz con el dominio, apuntar el
+DNS a GitHub Pages, y ahí sí el sitio pasa a la raíz — momento en el que conviene
+sacarle el prefijo `/consulting/` a `404.html`.
 
 ---
 
@@ -95,10 +105,11 @@ git remote add origin git@github.com:USUARIO/consultoria.git && git push -u orig
   Los servicios se abren con `<details>` nativo.
 - **Accesible**: contraste AA, foco visible, targets táctiles de 44 px, `prefers-reduced-motion`.
 
-### Chequeos antes de publicar
+### Pendientes
 
-- [ ] Reemplazar todos los `TU-DOMINIO.com` y `TU-USUARIO` (ver `CONTENT.md § 1`)
-- [ ] Resolver los `REVISAR` de `index.html` (ver `CONTENT.md § 3`)
-- [ ] Agregar `assets/img/og.png` (1200×630) y `apple-touch-icon.png` (180×180)
+- [x] Datos de contacto cargados (mail, LinkedIn, URL)
+- [ ] Resolver los 4 `REVISAR` de `index.html` (ver `CONTENT.md § 3`)
+- [ ] Agregar `assets/img/og.png` (1200×630) — sin esto el link se comparte sin imagen
+- [ ] Agregar `assets/img/apple-touch-icon.png` (180×180)
 - [ ] Probar en iPhone real: sin scroll horizontal, CTA fija no tapa contenido
 - [ ] Lighthouse mobile ≥ 95 en las cuatro categorías

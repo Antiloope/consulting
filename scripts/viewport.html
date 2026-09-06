@@ -3,7 +3,7 @@
 <script>
 const q = new URLSearchParams(location.search);
 const w = +q.get('w') || 390, h = +q.get('h') || 844, y = +q.get('y') || 0;
-document.write(`<iframe id=f src="/" width="${w}" height="${h}"></iframe>`);
+document.write(`<iframe id=f src="../" width="${w}" height="${h}"></iframe>`);
 document.getElementById('f').addEventListener('load', e => {
   const win = e.target.contentWindow;
   win.document.documentElement.style.scrollBehavior = 'auto';
