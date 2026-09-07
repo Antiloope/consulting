@@ -7,7 +7,7 @@
 <!-- ==========================================================================
      META — revisar antes de publicar. Ver CONTENT.md § 1.
      ========================================================================== -->
-<title>Rodrigo Pizarro — Consutltoría de tecnología para PyMEs con software crítico</title>
+<title>Rodrigo Pizarro — Consultoría de tecnología para PyMEs con software crítico</title>
 <meta name="description" content="Consultoría de tecnología en Córdoba, Argentina. Diagnóstico, plataforma interna, confiabilidad y modernización de sistemas legacy para empresas que crecieron alrededor de su software.">
 <link rel="canonical" href="https://antiloope.github.io/consulting/">
 
@@ -93,6 +93,13 @@
         <span>Para devolverte el control del negocio</span>
       </p>
     </div>
+
+    <a class="hero__more" href="#senales">
+      <span>conocer más</span>
+      <svg class="hero__more-icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+        <path d="M4.5 7.5 10 13l5.5-5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </section>
 
   <!-- ========================================================================
@@ -147,19 +154,22 @@
         </p>
       </div>
 
-      <div class="stack stack--lg reveal">
-        <div class="grid grid--2">
-          <article class="card card--numbered">
-            <p class="card__num">01</p>
-            <h3 class="card__title">Valor actual</h3>
-            <p class="card__body">Armar una foto actual de la organización para conocer donde están los huecos y dolores actuales</p>
-          </article>
-          <article class="card card--numbered">
-            <p class="card__num">02</p>
-            <h3 class="card__title">Inicio del plan de mejora</h3>
-            <p class="card__body">De esa misma foto, se arma un mapa para llegar a un nuevo nivel de madurez.</p>
-          </article>
-        </div>
+      <div class="grid grid--2 reveal">
+        <article class="card card--numbered">
+          <p class="card__num">01</p>
+          <h3 class="card__title">Valor actual</h3>
+          <p class="card__body">Armar una foto actual de la organización para conocer donde están los huecos y dolores actuales</p>
+        </article>
+        <article class="card card--numbered">
+          <p class="card__num">02</p>
+          <h3 class="card__title">Inicio del plan de mejora</h3>
+          <p class="card__body">De esa misma foto, se arma un mapa para llegar a un nuevo nivel de madurez.</p>
+        </article>
+      </div>
+
+      <div class="deliverable reveal">
+        <p class="card__label">Qué recibís</p>
+        <p>Un informe ejecutivo y otro detallado con los puntos diagnosticados en base a la matriz de madurez de la empresa, comparando con los estándares de la industria en cada aspecto.</p>
       </div>
     </div>
   </section>
@@ -176,14 +186,17 @@
         <h2 class="section__title" id="madurez-title">A dónde apuntar</h2>
         <p class="lede">
           Se puntúa cada vertical por separado para armar un plan de A a B.
-          Acá se ve la estructura.
+          Acá va una de muestra.
         </p>
       </div>
 
       <div class="matrix-wrap reveal">
-        <table class="matrix">
+        <div class="matrix-scroll">
+          <div class="matrix-scroll__view">
+          <table class="matrix">
           <caption class="visually-hidden">
-            Mapa de madurez: seis verticales por cinco niveles. El detalle de cada celda se reserva al diagnóstico.
+            Mapa de madurez: seis verticales por cinco niveles. Se muestra completa la vertical
+            «Ownership y cultura» como ejemplo; el criterio del resto se reserva al diagnóstico.
           </caption>
           <thead>
             <tr>
@@ -196,13 +209,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="matrix__row--sample">
               <th scope="row">Ownership y cultura</th>
-              <td><span class="matrix__placeholder" aria-hidden="true"></span></td>
-              <td><span class="matrix__placeholder" aria-hidden="true"></span></td>
-              <td><span class="matrix__placeholder" aria-hidden="true"></span></td>
-              <td><span class="matrix__placeholder" aria-hidden="true"></span></td>
-              <td><span class="matrix__placeholder" aria-hidden="true"></span></td>
+              <td>Una sola persona sabe cómo funciona el core del sistema</td>
+              <td>Hay una equipo chico que puede trabajar en el core</td>
+              <td>Cada parte del sistema tiene dueños claros</td>
+              <td>Hay un proceso de documentación y transferencia de conocimiento claro</td>
+              <td>El equipo absorbe una baja sin tocar el roadmap</td>
             </tr>
             <tr>
               <th scope="row">Desarrollo</th>
@@ -245,8 +258,10 @@
               <td><span class="matrix__placeholder" aria-hidden="true"></span></td>
             </tr>
           </tbody>
-        </table>
-        <p class="matrix-hint">El detalle de cada celda se trabaja en el diagnóstico.</p>
+          </table>
+          </div>
+        </div>
+        <p class="matrix-hint">El detalle del resto se trabaja en el diagnóstico.</p>
       </div>
 
     </div>
@@ -298,6 +313,15 @@
           <span class="route__detail">Capacidad instalada</span>
         </li>
       </ol>
+
+      <div class="deliverable reveal">
+        <p class="card__label">Qué recibís</p>
+        <ul class="checklist">
+          <li>Análisis de distintos planes de acción para poder evaluar alternativas.</li>
+          <li>Los accionables se ordenan por impacto y esfuerzo para poder priorizarlos en base a la disponibilidad del equipo, obteniendo rápidamente mejoras visibles.</li>
+          <li>Cerrando sobre un plan en particular, se arma una calendarización para mapear tiempos y prioridades de cada acción que haya que llevar a cabo.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -460,7 +484,7 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Rodrigo Pizarro — Consultoría de tecnología",
-  "description": "Contultoría de tecnología para PyMEs con software crítico.",
+  "description": "Consultoría de tecnología para PyMEs con software crítico.",
   "url": "https://antiloope.github.io/consulting/",
   "areaServed": "AR",
   "address": {

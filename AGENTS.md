@@ -4,7 +4,7 @@ Antes de diseñar frontend nuevo o modificar la interfaz existente, leer en este
 
 1. `PRODUCT.md`: objetivo del sitio, audiencia, contenido y restricciones funcionales.
 2. `DESIGN.md`: reglas normativas de tokens, accesibilidad, layout y componentes.
-3. `mockups/component-inventory.html`: referencia visual canónica y ejemplos reales de las clases de producción.
+3. `index.html` + `assets/css/components.css`: implementación canónica de las clases de producción.
 
 ## Contrato del frontend
 
@@ -22,13 +22,12 @@ Actualizar juntos:
 
 - `assets/css/components.css` y, si corresponde, tokens o composiciones;
 - `DESIGN.md`;
-- `mockups/component-inventory.html`, usando las clases reales de producción;
-- `scripts/test-component-inventory.py` y las pruebas afectadas.
+- las pruebas afectadas (`scripts/test-about.py`, `scripts/test-contact.py`).
 
 Antes de entregar, ejecutar como mínimo:
 
 ```bash
-python3 scripts/test-component-inventory.py
+python3 scripts/test-about.py
 python3 scripts/test-contact.py
 bash scripts/size.sh
 ```

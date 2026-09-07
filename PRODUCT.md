@@ -57,8 +57,8 @@ IT, consultoría por hora.
 
 ## Operating Context
 
-- **Origen del contenido:** deck de 18 slides (`docs/deck-source.md`, transcripción
-  completa). Es la fuente de verdad del copy.
+- **Origen del contenido:** el copy vivo vive en `index.html`. La página arrancó a
+  partir de un deck comercial; esa transcripción ya no forma parte del repo.
 - **Entrada al funnel:** referidos y contacto directo, más el link mandado antes de la
   reunión. Contacto por mail y LinkedIn; no hay formulario ni calendario embebido.
 - **Alcance geográfico:** base en Córdoba, Argentina. Se trabaja **remoto en todo el país
@@ -86,25 +86,36 @@ IT, consultoría por hora.
 El **Technology Assessment** es la oferta de entrada, para el caso "sabemos que hay
 problemas, pero no sabemos por dónde empezar".
 
+Este catálogo **no está publicado en la landing**: la página cuenta el método
+(diagnóstico → mapa de madurez → plan), no la lista de productos. Vive acá para la
+conversación y para la propuesta.
+
 ### Framework y mapa de madurez
 
 Cuatro fases: Diagnóstico → Planificación → Ejecución → Resultados finales.
 
 **Mapa de madurez — metodología propia, más allá de la transcripción del deck.**
 Cinco estadíos (`00` Frágil · `01` Controlado · `02` Repetible · `03`
-Autoservicio · `04` Previsible), pero el nivel de la organización **no se declara, se
+Autónomo · `04` Previsible), pero el nivel de la organización **no se declara, se
 puntúa**: se evalúan seis verticales por separado contra evidencia observable —
-Código y cambios, Build y deploy, Infraestructura y ambientes, Observabilidad e
-incidentes, Ownership y prácticas, Seguridad y accesos — y el estadío real es el de
+Ownership y cultura, Desarrollo, DevOps e infraestructura, Testing y calidad,
+Observabilidad y soporte, Seguridad y políticas — y el estadío real es el de
 la vertical más atrasada, no un promedio. Cada nivel a partir del 01 tiene un
 criterio de salida explícito y medible (ej.: "rollback ejecutado con éxito en menos
 de 1 hora" para pasar a Controlado). Reglas del modelo: el nivel lo fija la
 vertical más baja; no se saltean niveles; se puntúa contra evidencia, no contra
 respuestas ("¿tienen CI/CD?" siempre da que sí — cronometrar un deploy real da un
-número). En `#madurez` la landing publica solo la **estructura** de la matriz
-(ejes + celdas placeholder): el criterio de cada celda es parte de la propuesta de
-negocio y se trabaja en el diagnóstico. `docs/deck-source.md` documenta solo la
-versión original del deck, ya superada.
+número). En `#madurez` la landing publica los ejes completos y **una sola vertical
+de muestra** ("Ownership y cultura", fila `.matrix__row--sample`); las otras cinco
+quedan en placeholder porque el criterio de cada celda es parte de la propuesta de
+negocio y se trabaja en el diagnóstico.
+
+**Entregables anunciados en la landing.** `#framework` dice qué devuelve el
+diagnóstico (informe ejecutivo y otro detallado, con puntos sobre la matriz de
+madurez comparados a estándares de industria) y `#servicios` qué devuelve el plan
+(alternativas de acción, calendarización del plan elegido, accionables ordenados
+por impacto y esfuerzo). Son promesas públicas: si cambia la forma de trabajar,
+cambian primero acá.
 
 ### Restricciones técnicas del sitio
 
@@ -114,8 +125,8 @@ versión original del deck, ya superada.
   la raíz de un dominio. Las rutas del `index.html` son relativas por esa razón.
 - **Presupuesto de peso**: < 25 KB gzip transferidos. Sin webfonts, sin imágenes en el
   camino crítico. Verificable con `bash scripts/size.sh`.
-- **Funciona sin JavaScript.** El JS solo agrega animación de entrada y estado del nav;
-  los servicios se abren con `<details>` nativo.
+- **Funciona sin JavaScript.** El JS solo agrega animación de entrada y estado del nav.
+  Ninguna sección depende de él para mostrar su contenido.
 - **Mobile-first.** La mayor parte del tráfico entra desde el celular.
 
 ### Decisiones de producto explícitamente abiertas
@@ -154,28 +165,22 @@ Tampoco están definidos: dominio propio, precios públicos, y si habrá versió
 - **Perfil de Rodrigo** — ingeniero en Computación, cinco años desarrollando software
   en Mercado Libre, experiencia de consultoría con PyMEs y proyectos propios.
 - **Retrato de Rodrigo** — `assets/img/rodrigo-pizarro.jpg`, autorizado para la landing.
-- **Caso SIGES** — red de estaciones de servicio, sistema legacy en Visual FoxPro,
-  operación distribuida, cinco developers. Se puede nombrar al cliente y usar las métricas
-  tal como están hoy en la página: **5** developers en el equipo, **2** conocían el núcleo
-  del sistema, **0** control de versiones al empezar.
-- **Antes / después de SIGES** (cinco pares verificados): código repartido sin control de
-  versiones → monorepo versionado; deploy estación por estación con TeamViewer → deploy a
-  toda la red en segundos desde el IDP; producción como ambiente de prueba → framework de
-  testing y ambientes bajos; poca visibilidad → observabilidad con Grafana; conocimiento en
-  dos personas → estándares, documentación y ownership del equipo.
-- **`docs/deck-source.md`** — transcripción completa del deck original.
+- **Una vertical del mapa de madurez publicada** — "Ownership y cultura", con sus cinco
+  niveles escritos. Es la única celda de método que la landing muestra completa y hace de
+  prueba de que la matriz existe.
 
 **Lo que NO existe y ningún trabajo futuro debe fabricar:**
 
+- No hay casos publicados. La landing no tiene sección de caso testigo y **no se
+  reintroduce una sin decisión explícita**: se sacó a propósito.
 - No hay testimonios ni citas atribuidas a clientes. Nadie puso su nombre todavía.
-- No hay otros casos documentados. SIGES es el único.
 - No hay logos de clientes, premios, certificaciones, prensa ni cantidad de clientes.
 - No hay precios publicados ni benchmarks de industria.
-- El caso SIGES está **en curso**, no cerrado. No se puede hablar de él en pasado
-  concluido ni atribuirle resultados finales que todavía no ocurrieron.
 
-**Activos faltantes que sí se esperan:** `assets/img/og.png` (1200×630) y
-`assets/img/apple-touch-icon.png` (180×180).
+**Activos de marca ya publicados:** `assets/img/og.png` (1200×630) y
+`assets/img/apple-touch-icon.png` (180×180), regenerables con `scripts/gen-images.sh`.
+`assets/img/favicon.svg` y el retrato `assets/img/rodrigo-pizarro.jpg` también están
+en el repo.
 
 ## Product Principles
 

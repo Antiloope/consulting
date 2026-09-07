@@ -86,6 +86,16 @@
   font-size: var(--fs-xs);
   color: var(--text-subtle);
 }
+/* Etiqueta de entregable. Sirve dentro de .card__meta y suelta sobre .deliverable. */
+.card__label {
+  display: block;
+  margin-bottom: var(--sp-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  color: var(--accent-text);
+}
 
 /* Card numerada (fases, niveles, pasos) */
 .card--numbered { position: relative; }

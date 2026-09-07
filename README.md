@@ -23,12 +23,7 @@ Se edita y se publica con `git push`.
 │   │   ├── components.css   ← 4. piezas reutilizables (botón, card, quote, timeline…)
 │   │   └── sections.css     ← 5. ajustes propios de cada sección
 │   ├── js/main.js           ← scroll-spy, reveal, CTA fija. Progressive enhancement.
-│   └── img/                 ← favicon, og image, logos de clientes
-├── docs/
-│   ├── deck-source.md       ← contenido del deck original, transcripto. Fuente del copy.
-│   └── superpowers/         ← decisiones y planes de cambios estructurales.
-├── mockups/
-│   └── component-inventory.html ← referencia visual canónica del frontend.
+│   └── img/                 ← favicon, og image, retrato, logos de clientes
 ├── AGENTS.md                ← contrato de trabajo para futuros agentes.
 ├── CONTENT.md               ← cómo editar el contenido
 ├── DESIGN.md                ← cómo usar y extender tokens y componentes
@@ -37,9 +32,8 @@ Se edita y se publica con `git push`.
 
 **El orden de los `<link rel="stylesheet">` en `index.html` importa.** `tokens.css` va siempre primero.
 
-Para diseñar o cambiar frontend, revisar primero `PRODUCT.md`, `DESIGN.md` y
-`mockups/component-inventory.html`. La landing y el inventario consumen las mismas
-clases de producción; el inventario no mantiene una implementación paralela.
+Para diseñar o cambiar frontend, revisar primero `PRODUCT.md`, `DESIGN.md` y las
+clases de producción en `assets/css/components.css` / `index.html`.
 
 ---
 

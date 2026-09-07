@@ -111,8 +111,9 @@ Solo tres, todos `min-width` (mobile-first). En `em` para que respeten el zoom d
 
 ## Sistema canónico de componentes
 
-La referencia visual y funcional es [`mockups/component-inventory.html`](mockups/component-inventory.html).
-El núcleo está cerrado en **10 familias**; el resto son composiciones de página o utilidades de layout.
+La referencia canónica es la implementación en producción: `assets/css/components.css`
+junto con el uso real en `index.html`. El núcleo está cerrado en **10 familias**; el
+resto son composiciones de página o utilidades de layout.
 
 | Familia | Clases | Para qué |
 |---|---|---|
@@ -144,11 +145,16 @@ El núcleo está cerrado en **10 familias**; el resto son composiciones de pági
 
 ## Movimiento
 
-Una sola animación en toda la página: `.reveal` (fade + 12px de subida).
-Se dispara con `IntersectionObserver` y se desactiva entera con `prefers-reduced-motion`.
+Animaciones de la página:
+
+- `.reveal` (fade + 12px de subida): aparición de bloques al scrollear.
+- `.hero__more-icon` (2–4px de bounce): solo mobile, invita a seguir bajando.
+
+Ambas se desactivan con `prefers-reduced-motion`. El reveal se dispara con
+`IntersectionObserver`; el chevron del hero es CSS puro.
 
 Duraciones: `--dur-fast` (120ms) para hover, `--dur` (220ms) para transiciones de estado,
-`--dur-slow` (520ms) para entradas.
+`--dur-slow` (520ms) para entradas y el bounce del hero.
 
 ---
 

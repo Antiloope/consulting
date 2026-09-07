@@ -5,6 +5,7 @@
 
 /* ---- Hero ---------------------------------------------------------------- */
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
   min-height: 100svh;
@@ -47,6 +48,43 @@
   color: var(--text-muted);
 }
 .hero__signature strong { color: var(--text); font-weight: var(--fw-medium); }
+
+/* Invitación a scrollear: solo mobile (sin nav de anclas). */
+.hero__more { display: none; }
+@media (max-width: 63.99em) {
+  .hero {
+    padding-bottom: calc(var(--sp-16) + env(safe-area-inset-bottom));
+  }
+  .hero__more {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--sp-5) + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-1);
+    min-height: calc(var(--sp-10) + var(--sp-1));
+    padding: var(--sp-2) var(--sp-4);
+    transform: translateX(-50%);
+    color: var(--text-muted);
+    font-size: var(--fs-xs);
+    text-decoration: none;
+    letter-spacing: var(--ls-normal);
+  }
+  .hero__more:hover,
+  .hero__more:focus-visible { color: var(--text); }
+  .hero__more-icon {
+    display: block;
+    animation: hero-more-bounce var(--dur-slow) var(--ease-out) infinite alternate;
+  }
+}
+@media (max-width: 63.99em) and (prefers-reduced-motion: reduce) {
+  .hero__more-icon { animation: none; }
+}
+@keyframes hero-more-bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(var(--sp-1)); }
+}
 
 /* ---- Lo que se escucha ---------------------------------------------------- */
 /* En desktop la cita principal entra en una línea: el .section__head
@@ -102,30 +140,39 @@
 .proof-teaser__link:hover { color: var(--accent-hover); }
 
 /* ---- Mapa de madurez: matriz teaser ----------------------------------------
-   Ejes (verticales × niveles) visibles; celdas en placeholder. El criterio
-   detallado no se publica: es parte de la propuesta de negocio.
+   Ejes (verticales × niveles) visibles. La primera vertical va completa como
+   muestra (.matrix__row--sample); el resto queda en placeholder porque el
+   criterio detallado es parte de la propuesta de negocio.
+   El scroll horizontal vive en .matrix-scroll__view; el fade (::after) y el
+   hint quedan fuera de ese scroller para no desplazarse con la tabla.
+   La columna sticky se ancla a left:0 y el gutter entra como padding de la
+   propia celda, así no salta ni tapa contenido.
    ---------------------------------------------------------------------------- */
 .matrix-wrap {
-  position: relative;
   margin-inline: calc(var(--gutter) * -1);
-  padding-inline: var(--gutter);
+}
+.matrix-scroll {
+  position: relative;
+}
+.matrix-scroll__view {
   overflow-x: auto;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
 }
-.matrix-wrap::after {
+.matrix-scroll::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
-  bottom: var(--sp-6);
-  width: var(--sp-10);
+  bottom: 0;
+  width: var(--sp-6);
   background: linear-gradient(to right, transparent, var(--bg-alt));
   pointer-events: none;
+  z-index: 3;
 }
 
 .matrix {
-  width: max(100%, 44rem);
+  width: max(100%, 58rem);
   border-collapse: separate;
   border-spacing: 0;
   font-size: var(--fs-sm);
@@ -147,10 +194,12 @@
 .matrix thead th:first-child,
 .matrix tbody th {
   border-left: var(--border-width) solid var(--border-strong);
+  padding-left: var(--gutter);
 }
 .matrix thead th:last-child,
 .matrix tbody td:last-child {
   border-right-color: var(--border-strong);
+  padding-right: var(--gutter);
 }
 .matrix tbody tr:last-child th,
 .matrix tbody tr:last-child td {
@@ -190,16 +239,27 @@
   font-weight: var(--fw-medium);
   color: var(--text);
   line-height: var(--lh-snug);
+  box-shadow: var(--sp-2) 0 var(--sp-3) calc(var(--sp-2) * -1) var(--border);
 }
 .matrix thead th:first-child {
   position: sticky;
   left: 0;
   z-index: 2;
+  background: var(--bg-alt);
+  box-shadow: var(--sp-2) 0 var(--sp-3) calc(var(--sp-2) * -1) var(--border);
 }
 
 .matrix td {
-  min-width: 6.5rem;
+  min-width: 8.5rem;
   background: var(--surface);
+}
+
+/* Vertical de muestra: la única fila con el criterio publicado. */
+.matrix__row--sample td {
+  vertical-align: top;
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+  color: var(--text-muted);
 }
 
 .matrix__placeholder {
@@ -223,6 +283,7 @@
 
 .matrix-hint {
   margin-top: var(--sp-3);
+  padding-inline: var(--gutter);
   font-size: var(--fs-xs);
   color: var(--text-subtle);
 }
@@ -326,6 +387,14 @@
   font-weight: var(--fw-medium);
   color: var(--text-muted);
   white-space: nowrap;
+}
+
+/* Entregable anunciado: qué queda escrito al cerrar diagnóstico o plan. */
+.deliverable {
+  max-width: var(--container-narrow);
+  margin-top: var(--sp-10);
+  padding-top: var(--sp-6);
+  border-top: var(--border-width) solid var(--border-strong);
 }
 
 /* ---- Framework (legacy label helper) --------------------------------------- */
