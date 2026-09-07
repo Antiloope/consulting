@@ -91,18 +91,20 @@ problemas, pero no sabemos por dónde empezar".
 Cuatro fases: Diagnóstico → Planificación → Ejecución → Resultados finales.
 
 **Mapa de madurez — metodología propia, más allá de la transcripción del deck.**
-Cinco estadíos (`00` Ad hoc · `01` Estabilización · `02` Estandarización · `03`
-Plataforma · `04` Escalado), pero el nivel de la organización **no se declara, se
+Cinco estadíos (`00` Frágil · `01` Controlado · `02` Repetible · `03`
+Autoservicio · `04` Previsible), pero el nivel de la organización **no se declara, se
 puntúa**: se evalúan seis verticales por separado contra evidencia observable —
 Código y cambios, Build y deploy, Infraestructura y ambientes, Observabilidad e
 incidentes, Ownership y prácticas, Seguridad y accesos — y el estadío real es el de
 la vertical más atrasada, no un promedio. Cada nivel a partir del 01 tiene un
 criterio de salida explícito y medible (ej.: "rollback ejecutado con éxito en menos
-de 1 hora" para pasar a Estabilización). Reglas del modelo: el nivel lo fija la
+de 1 hora" para pasar a Controlado). Reglas del modelo: el nivel lo fija la
 vertical más baja; no se saltean niveles; se puntúa contra evidencia, no contra
 respuestas ("¿tienen CI/CD?" siempre da que sí — cronometrar un deploy real da un
-número). Esta matriz vive en `index.html` `#madurez` y es la fuente de verdad;
-`docs/deck-source.md` documenta solo la versión original del deck, ya superada.
+número). En `#madurez` la landing publica solo la **estructura** de la matriz
+(ejes + celdas placeholder): el criterio de cada celda es parte de la propuesta de
+negocio y se trabaja en el diagnóstico. `docs/deck-source.md` documenta solo la
+versión original del deck, ya superada.
 
 ### Restricciones técnicas del sitio
 
@@ -149,6 +151,9 @@ Tampoco están definidos: dominio propio, precios públicos, y si habrá versió
 
 **Lo que es real y se puede mostrar con nombre:**
 
+- **Perfil de Rodrigo** — ingeniero en Computación, cinco años desarrollando software
+  en Mercado Libre, experiencia de consultoría con PyMEs y proyectos propios.
+- **Retrato de Rodrigo** — `assets/img/rodrigo-pizarro.jpg`, autorizado para la landing.
 - **Caso SIGES** — red de estaciones de servicio, sistema legacy en Visual FoxPro,
   operación distribuida, cinco developers. Se puede nombrar al cliente y usar las métricas
   tal como están hoy en la página: **5** developers en el equipo, **2** conocían el núcleo
@@ -166,7 +171,6 @@ Tampoco están definidos: dominio propio, precios públicos, y si habrá versió
 - No hay otros casos documentados. SIGES es el único.
 - No hay logos de clientes, premios, certificaciones, prensa ni cantidad de clientes.
 - No hay precios publicados ni benchmarks de industria.
-- No hay fotografía propia ni retrato profesional cargado en el repo.
 - El caso SIGES está **en curso**, no cerrado. No se puede hablar de él en pasado
   concluido ni atribuirle resultados finales que todavía no ocurrieron.
 

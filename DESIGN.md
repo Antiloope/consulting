@@ -109,23 +109,36 @@ Solo tres, todos `min-width` (mobile-first). En `em` para que respeten el zoom d
 
 ---
 
-## Componentes disponibles
+## Sistema canónico de componentes
 
-| Clase | Para qué |
-|---|---|
-| `.btn` `.btn--primary` `.btn--ghost` `.btn--sm` | Acciones |
-| `.tag` `.tag--neutral` | Etiquetas de duración / categoría |
-| `.card` `.card--numbered` | Cualquier bloque en grilla |
-| `.quote` | Citas de cliente |
-| `.stat` | Métricas grandes |
-| `.level` `.level__gate` `.model-rules` | Matriz de madurez: tarjetas por nivel con scroll-snap horizontal (sin JS) |
-| `.timeline` | Cronogramas |
-| `.compare` `.compare--compact` | Tabla antes/después. El lado "después" pesa más (`.compare__after`, `.compare__label--after`) — es el que vende. `--compact` es el anticipo de 1-2 filas en `#compromiso`; el caso completo va sin el modificador. |
-| `.proof-teaser` `.case__stats--compact` | Anticipo comprimido de un caso, para meter antes en la página sin duplicar la sección completa |
-| `.checklist` | Listas de entregables |
-| `.disclosure` | Servicio expandible (`<details>` nativo) |
-| `.reveal` | Aparición al scrollear |
-| `.grid--2/3/4` `.stack` `.cluster` | Layout |
+La referencia visual y funcional es [`mockups/component-inventory.html`](mockups/component-inventory.html).
+El núcleo está cerrado en **10 familias**; el resto son composiciones de página o utilidades de layout.
+
+| Familia | Clases | Para qué |
+|---|---|---|
+| Label | `.label` | Contexto, metadatos y rótulos discretos. Sin mayúsculas forzadas ni tracking ornamental. |
+| Botón | `.btn` `.btn--primary` `.btn--ghost` | Acciones primarias y secundarias. No hay versión táctil reducida. |
+| Tag | `.tag` | Duración, categoría o estado breve. Un solo tratamiento visual. |
+| Cita | `.quote` | Voz del cliente con una línea de acento mínima. |
+| Superficie | `.surface` `.card` | Base visual compartida: fondo, borde de 1px y radio. `.disclosure` usa la misma gramática. |
+| Métrica | `.stat` | Evidencia numérica con valor y explicación. |
+| Checklist | `.checklist` | Entregables, criterios o resultados verificables. |
+| Detalle | `.disclosure` | Contenido expandible con `<details>` nativo. |
+| Comparación | `.compare` `.compare--compact` | Antes/después en filas lineales, sin convertir cada fila en una tarjeta. |
+| Timeline | `.timeline` | Secuencia temporal o de trabajo. |
+
+### Composiciones, no familias nuevas
+
+- `.hero`, `.contact`, `.matrix`, `.proof-teaser`, `.case__stats`, `.not-selling` y el footer combinan componentes, contenido y layout para una sección concreta.
+- `.grid--2/3/4`, `.stack`, `.cluster`, `.container` y `.container--narrow` son utilidades de layout.
+- `.reveal` es una mejora progresiva de movimiento, no un componente visual.
+
+### Regla para extender
+
+1. Primero resolvé el caso con estas familias y las utilidades existentes.
+2. Agregá una variante solo si cambia el significado o el comportamiento, no por una diferencia cosmética aislada.
+3. Creá una familia nueva únicamente si el patrón aparece en más de un contexto y no cabe en una superficie existente.
+4. Si el sistema cambia, actualizá en la misma entrega `components.css`, esta guía, el inventario canónico y su prueba.
 
 ---
 
@@ -145,11 +158,11 @@ Medido con `bash scripts/size.sh`. Estado actual entre paréntesis.
 
 | Recurso | Límite (crudo) | Hoy |
 |---|---|---|
-| HTML | 40 KB | 28 KB |
-| CSS (5 archivos) | 45 KB | 30 KB |
-| JS | 5 KB | 3 KB |
+| HTML | 40 KB | 36 KB |
+| CSS (5 archivos) | 45 KB | 36 KB |
+| JS | 5 KB | 4.2 KB |
 | Imágenes en el camino crítico | 0 | 0 |
-| **Total transferido (gzip)** | **< 25 KB** | **13 KB** |
+| **Total transferido (gzip)** | **< 25 KB** | **20.4 KB** |
 
 GitHub Pages sirve todo con gzip/brotli, así que el número que importa es el último.
 

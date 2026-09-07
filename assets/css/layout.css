@@ -46,11 +46,10 @@
 }
 
 .section__eyebrow {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-caps);
-  text-transform: uppercase;
-  color: var(--text-subtle);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  color: var(--text-muted);
 }
 
 .section__title { font-size: var(--fs-3xl); }
@@ -95,35 +94,23 @@
 
 /* ---- Header ------------------------------------------------------------- */
 .site-header {
-  /* Fixed (no sticky) para que flote sobre el hero oscuro en el scroll 0.
-     El hero compensa con padding-top; el resto, con scroll-padding-top. */
+  /* Fixed (no sticky) para que flote sobre el hero. El hero compensa con
+     padding-top; el resto, con scroll-padding-top. */
   position: fixed;
   inset: 0 0 auto 0;
   z-index: var(--z-header);
   height: var(--header-h);
   display: flex;
   align-items: center;
-  /* El estado por defecto es el SÓLIDO: es el que se ve sin JS, y ahí el
-     header tiene que ser legible sobre el fondo claro de la página. */
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: saturate(1.6) blur(10px);
-  -webkit-backdrop-filter: saturate(1.6) blur(10px);
-  color: var(--text);
-  border-bottom: var(--border-width) solid var(--border);
-  transition: background-color var(--dur) var(--ease),
-              border-color var(--dur) var(--ease),
-              color var(--dur) var(--ease);
+  /* Siempre opaco y oscuro (light y dark). --header-bg no se da vuelta
+     con prefers-color-scheme, a diferencia de --bg-invert. */
+  background: var(--header-bg);
+  color: var(--header-fg);
+  border-bottom: var(--border-width) solid var(--header-border);
+  transition: background-color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease);
   padding-top: env(safe-area-inset-top);
-}
-
-/* Con JS, mientras el hero sigue en pantalla, el header flota transparente
-   sobre él. main.js pone data-scrolled="true" al pasarlo. */
-.js .site-header:not([data-scrolled="true"]) {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  color: var(--text-on-invert);
-  border-bottom-color: transparent;
 }
 
 .site-header__inner {
@@ -138,20 +125,24 @@
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  min-height: 44px;          /* target táctil */
+  min-height: calc(var(--sp-10) + var(--sp-1)); /* target táctil: 44px */
   font-weight: var(--fw-semibold);
   font-size: var(--fs-md);
   letter-spacing: var(--ls-tight);
   color: inherit;
   text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
 }
-.brand__mark { color: var(--accent-text); }
-/* Mientras flota sobre el hero, el acento es el de superficie invertida. */
-.js .site-header:not([data-scrolled="true"]) .brand__mark { color: var(--accent-invert); }
+/* Evita el a:hover global (--accent-hover, más claro) y usa el azul del branding. */
+.brand:hover,
+.brand:focus-visible { color: var(--header-accent); }
+.brand__mark { color: var(--header-accent); }
+.brand:hover .brand__mark,
+.brand:focus-visible .brand__mark { color: inherit; }
 .brand__sub {
   font-weight: var(--fw-regular);
   font-size: var(--fs-xs);
-  color: var(--text-subtle);
+  color: var(--header-fg-muted);
   letter-spacing: var(--ls-normal);
 }
 @media (max-width: 30em) { .brand__sub { display: none; } }

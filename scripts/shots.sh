@@ -18,7 +18,7 @@ CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
 
 if ! curl -sf -o /dev/null "http://127.0.0.1:$PORT/"; then
   echo "No hay nada sirviendo en el puerto $PORT."
-  echo "Levantalo con: python3 -m http.server $PORT"
+  echo "Levantalo con: bash scripts/dev.sh $PORT"
   exit 1
 fi
 

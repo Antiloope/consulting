@@ -25,13 +25,21 @@ Se edita y se publica con `git push`.
 │   ├── js/main.js           ← scroll-spy, reveal, CTA fija. Progressive enhancement.
 │   └── img/                 ← favicon, og image, logos de clientes
 ├── docs/
-│   └── deck-source.md       ← contenido del deck original, transcripto. Fuente del copy.
+│   ├── deck-source.md       ← contenido del deck original, transcripto. Fuente del copy.
+│   └── superpowers/         ← decisiones y planes de cambios estructurales.
+├── mockups/
+│   └── component-inventory.html ← referencia visual canónica del frontend.
+├── AGENTS.md                ← contrato de trabajo para futuros agentes.
 ├── CONTENT.md               ← cómo editar el contenido
-├── DESIGN.md                ← cómo usar y extender los tokens
+├── DESIGN.md                ← cómo usar y extender tokens y componentes
 └── .github/workflows/deploy.yml
 ```
 
 **El orden de los `<link rel="stylesheet">` en `index.html` importa.** `tokens.css` va siempre primero.
+
+Para diseñar o cambiar frontend, revisar primero `PRODUCT.md`, `DESIGN.md` y
+`mockups/component-inventory.html`. La landing y el inventario consumen las mismas
+clases de producción; el inventario no mantiene una implementación paralela.
 
 ---
 
@@ -39,13 +47,13 @@ Se edita y se publica con `git push`.
 
 No hace falta ningún servidor: `open index.html` alcanza.
 
-Si querés que las rutas absolutas de `404.html` funcionen igual que en producción, levantá un server estático:
+Para desarrollo con hot reload (HTML/CSS/JS):
 
 ```bash
-python3 -m http.server 4177 --directory .
+bash scripts/dev.sh
 ```
 
-Y abrí <http://localhost:4177>.
+Abrí <http://localhost:4177>. Necesita Node (`npx`); sin Node cae a `python3 -m http.server` sin reload.
 
 Para probar en el celular contra la máquina local (mismo WiFi):
 
@@ -57,6 +65,7 @@ python3 -m http.server 4177 --bind 0.0.0.0 --directory .
 
 | Script | Qué hace |
 |---|---|
+| `bash scripts/dev.sh` | Server local con hot reload en el puerto 4177. |
 | `bash scripts/size.sh` | Mide el peso crudo y gzip. Falla si pasa los 25 KB gzip. |
 | `bash scripts/shots.sh` | Capturas en viewports reales de mobile y desktop, en `.shots/`. Necesita el server levantado en el puerto 4177. |
 | `bash scripts/gen-images.sh` | Regenera `assets/img/og.png` y `apple-touch-icon.png` desde sus fuentes SVG (`scripts/og-image.svg`, `scripts/touch-icon.svg`). Solo macOS (usa `qlmanage`/`sips`). |

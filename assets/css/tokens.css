@@ -61,6 +61,15 @@
   --border-invert:   #2e2e2e;
   --border-width:    1px;
 
+  /* ---- Semánticos: chrome del header ----------------------------------
+     Siempre oscuro en light y dark: no se da vuelta con --bg-invert.
+     El header flota sobre el hero y, al scrollear, usa este fondo opaco. */
+  --header-bg:           var(--ink-950);
+  --header-fg:           var(--ink-025);
+  --header-fg-muted:     var(--ink-400);
+  --header-border:       #2e2e2e;
+  --header-accent:       var(--blue-400);
+
   /* ---- Tipografía ------------------------------------------------------ */
   /* Para cambiar a una webfont: pisar --font-sans y sumar el @font-face
      en base.css con font-display:swap. Ver DESIGN.md. */
@@ -113,7 +122,6 @@
   /* ---- Layout ---------------------------------------------------------- */
   --container: 68rem;         /* 1088px */
   --container-narrow: 46rem;  /* 736px — texto de lectura */
-  --level-card-w: 20rem;      /* 320px — ancho de cada tarjeta del mapa de madurez */
   --gutter: clamp(1.25rem, 5vw, 2.5rem);
   --section-py: clamp(3.5rem, 8vw, 6.5rem);
   --header-h: 3.5rem;
