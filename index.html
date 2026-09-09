@@ -62,6 +62,7 @@
     <nav class="site-nav" data-nav aria-label="Secciones">
       <a href="#problema">Problema</a>
       <a href="#framework">Cómo trabajo</a>
+      <a href="#caso">Caso</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -157,8 +158,8 @@
       <div class="grid grid--2 reveal">
         <article class="card card--numbered">
           <p class="card__num">01</p>
-          <h3 class="card__title">Valor actual</h3>
-          <p class="card__body">Armar una foto actual de la organización para conocer donde están los huecos y dolores actuales</p>
+          <h3 class="card__title">Foto del estado actual</h3>
+          <p class="card__body">Armar una foto actual de la organización para conocer dónde están los huecos y dolores actuales.</p>
         </article>
         <article class="card card--numbered">
           <p class="card__num">02</p>
@@ -169,7 +170,7 @@
 
       <div class="deliverable reveal">
         <p class="card__label">Qué recibís</p>
-        <p>Un informe ejecutivo y otro detallado con los puntos diagnosticados en base a la matriz de madurez de la empresa, comparando con los estándares de la industria en cada aspecto.</p>
+        <p>Un informe ejecutivo y otro detallado con los puntos diagnosticados en base a la matriz de madurez de la empresa, contrastando el estado actual con buenas prácticas de la industria y con el nivel de madurez que realmente necesita el negocio.</p>
       </div>
     </div>
   </section>
@@ -186,7 +187,7 @@
         <h2 class="section__title" id="madurez-title">A dónde apuntar</h2>
         <p class="lede">
           Se puntúa cada vertical por separado para armar un plan de A a B.
-          Acá va una de muestra.
+          Se publica una vertical completa como muestra.
         </p>
       </div>
 
@@ -212,7 +213,7 @@
             <tr class="matrix__row--sample">
               <th scope="row">Ownership y cultura</th>
               <td>Una sola persona sabe cómo funciona el core del sistema</td>
-              <td>Hay una equipo chico que puede trabajar en el core</td>
+              <td>Hay un equipo chico que puede trabajar en el core</td>
               <td>Cada parte del sistema tiene dueños claros</td>
               <td>Hay un proceso de documentación y transferencia de conocimiento claro</td>
               <td>El equipo absorbe una baja sin tocar el roadmap</td>
@@ -303,7 +304,7 @@
           <span class="route__dot" aria-hidden="true"></span>
           <span class="route__mark">03</span>
           <span class="route__name">Ejecutar</span>
-          <span class="route__detail">Cerrar el gap</span>
+          <span class="route__detail">El equipo ejecuta, yo acompaño</span>
         </li>
         <li class="route__edge" aria-hidden="true"><span class="route__duration">1–2 sem</span></li>
         <li class="route__node route__node--end">
@@ -326,6 +327,101 @@
   </section>
 
   <!-- ========================================================================
+       07 · CASO REAL — anonimizado a propósito: sin nombre de cliente ni rubro
+       identificable. Los números y las filas del antes/después son reales.
+       Para agregar más casos: duplicar esta sección con otro id.
+       ======================================================================== -->
+  <section class="section section--alt" id="caso" aria-labelledby="caso-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">CASO REAL</p>
+        <h2 class="section__title" id="caso-title">Un deploy dejó de ser un evento riesgoso</h2>
+        <p class="lede">
+          Empresa con operación distribuida en varias sucursales y un sistema legacy
+          de escritorio en el centro del negocio. Cinco developers en total.
+        </p>
+      </div>
+
+      <div class="case__stats reveal">
+        <div class="stat">
+          <p class="stat__value">5</p>
+          <p class="stat__label">developers en todo el equipo</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">2</p>
+          <p class="stat__label">conocían el núcleo del sistema</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">0</p>
+          <p class="stat__label">control de versiones al empezar</p>
+        </div>
+      </div>
+
+      <div class="compare reveal">
+        <div class="compare__head">
+          <p class="compare__label">Antes</p>
+          <p class="compare__label compare__label--after">Después</p>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Código repartido, sin control de versiones</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label compare__label--after">Después</p>
+            <p class="compare__after">Monorepo versionado con arquitectura limpia</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Deploy sucursal por sucursal con escritorio remoto</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label compare__label--after">Después</p>
+            <p class="compare__after">Deploy a toda la red en segundos desde una plataforma interna</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Producción como ambiente de prueba</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label compare__label--after">Después</p>
+            <p class="compare__after">Framework de testing y ambientes previos</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Poca visibilidad de la operación</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label compare__label--after">Después</p>
+            <p class="compare__after">Observabilidad de toda la red con Grafana</p>
+          </div>
+        </div>
+
+        <div class="compare__row">
+          <div class="compare__side">
+            <p class="compare__label">Antes</p>
+            <p class="compare__before">Conocimiento concentrado en dos personas</p>
+          </div>
+          <div class="compare__side">
+            <p class="compare__label compare__label--after">Después</p>
+            <p class="compare__after">Estándares, documentación y ownership del equipo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
        08 · MANIFIESTO
        ======================================================================== -->
   <section class="section section--invert" id="manifiesto" aria-labelledby="manifiesto-title">
@@ -343,13 +439,22 @@
 
   <!-- ========================================================================
        09 · ANATOMÍA DE UN PROYECTO
-       REVISAR: los rangos de semanas salieron ambiguos del deck. Ver CONTENT.md § 3.
+       El ejemplo es del mismo tipo de problema que el caso de la sección 07
+       (delivery y operación), no de "madurez" en abstracto.
+       Los plazos de los tres primeros pasos coinciden con los tramos del mapa
+       A → B de #servicios. La ejecución no lleva plazo cerrado a propósito:
+       depende del plan y la hace el equipo de la empresa.
        ======================================================================== -->
   <section class="section" id="anatomia" aria-labelledby="anatomia-title">
     <div class="container container--narrow">
       <div class="section__head reveal">
         <p class="section__eyebrow">ANATOMÍA DE UN PROYECTO</p>
-        <h2 class="section__title" id="anatomia-title">Ejemplo: Madurez en 8 semanas</h2>
+        <h2 class="section__title" id="anatomia-title">Ejemplo: releases riesgosos</h2>
+        <p class="lede">
+          El diagnóstico y el plan los hago yo. La ejecución la lleva el equipo de la
+          empresa, con acompañamiento técnico y seguimiento semanal: la idea es que la
+          capacidad quede instalada adentro, no que dependa de mí.
+        </p>
       </div>
 
       <ol class="timeline reveal">
@@ -357,8 +462,8 @@
           <div class="timeline__rail"><span class="timeline__dot"></span><span class="timeline__line"></span></div>
           <div>
             <p class="timeline__when">Semanas 1-2</p>
-            <h3 class="timeline__what">Inicio</h3>
-            <p class="timeline__detail">En el diagnóstico se identifica que la empresa tiene un nivel de desarrollo de software elevado, pero hay falencias en los procesos y calidad de la gestión del mismo, que hacen que las nuevas funcionalidades no puedan entregarse a tiempo para el negocio.</p>
+            <h3 class="timeline__what">Diagnóstico</h3>
+            <p class="timeline__detail">Del relevamiento sale un patrón concreto: cada release es un evento riesgoso, una sola persona sabe operar producción y cuando algo falla nadie tiene visibilidad de qué pasó. El cuello de botella no es el código, es cómo se entrega y se opera.</p>
           </div>
         </li>
         <li class="timeline__item">
@@ -366,7 +471,7 @@
           <div>
             <p class="timeline__when">Semana 3</p>
             <h3 class="timeline__what">Priorización</h3>
-            <p class="timeline__detail">Con la información del diagnóstico, se decide priorizar la estandarización de los procesos y herramientas de desarrollo, junto con el fomento de los mandos medios dentro de la empresa.</p>
+            <p class="timeline__detail">Se prioriza delivery y operación por encima del resto de las verticales: estandarizar repositorios y CI/CD, separar ambientes, tener rollback y monitoreo, y repartir el ownership del sistema.</p>
           </div>
         </li>
         <li class="timeline__item">
@@ -374,15 +479,15 @@
           <div>
             <p class="timeline__when">Semanas 4-5</p>
             <h3 class="timeline__what">Informe y plan de acción</h3>
-            <p class="timeline__detail">Se arma un plan concreto con plazos y resultados medibles para llegar al nuevo nivel de madurez y se evalua con las distintas areas de la empresa para asegurar la viabilidad del plan.</p>
+            <p class="timeline__detail">Se arma un plan concreto con plazos y resultados medibles, y se evalúa con las distintas áreas de la empresa para asegurar la viabilidad: qué se puede sostener con el equipo que hay y en qué orden conviene hacerlo.</p>
           </div>
         </li>
         <li class="timeline__item">
           <div class="timeline__rail"><span class="timeline__dot"></span><span class="timeline__line"></span></div>
           <div>
-            <p class="timeline__when">Semanas 6-8</p>
-            <h3 class="timeline__what">Ejecución</h3>
-            <p class="timeline__detail">Se ejecuta el plan de acción, se trabaja con el capital humano de mandos medios y se implementan metodologías agiles de trabajo en equipo.</p>
+            <p class="timeline__when">Según el plan</p>
+            <h3 class="timeline__what">Ejecución acompañada</h3>
+            <p class="timeline__detail">El equipo ejecuta. Yo acompaño con seguimiento semanal, decisiones técnicas y revisión de lo que se va entregando, ajustando el plan cuando aparecen los imprevistos de siempre.</p>
           </div>
         </li>
         <li class="timeline__item">
@@ -390,7 +495,7 @@
           <div>
             <p class="timeline__when">Cierre</p>
             <h3 class="timeline__what">Nuevo nivel de madurez</h3>
-            <p class="timeline__detail">Se alcanza el nuevo nivel de madurez con la capacidad de producir, desplegar y operar software de manera más eficiente y confiable.</p>
+            <p class="timeline__detail">Varias personas pueden operar el sistema, un deploy deja de ser un evento riesgoso y la empresa queda con la capacidad de producir, desplegar y operar software sin depender de una sola cabeza.</p>
           </div>
         </li>
       </ol>
@@ -406,7 +511,7 @@
         <p class="section__eyebrow">SOBRE MÍ</p>
         <h2 class="about__title" id="sobre-mi-title">Experiencia técnica, mirada de negocio.</h2>
         <p class="about__body">
-          Soy ingeniero en Computación y trabajé cinco años creando software en Mercado Libre. También acompañé a distintas PyMEs como consultor y llevo adelante proyectos propios. Me involucro en cada trabajo para entender las particularidades del negocio antes de armar un plan de acción. En empresas de producto, la tecnología tiene que resolver problemas, no ser uno mas.
+          Soy ingeniero en Computación y trabajé cinco años creando software en Mercado Libre. También acompañé a distintas PyMEs como consultor y llevo adelante proyectos propios. Me involucro en cada trabajo para entender las particularidades del negocio antes de armar un plan de acción. En empresas de producto, la tecnología tiene que resolver problemas, no ser uno más.
         </p>
       </div>
 

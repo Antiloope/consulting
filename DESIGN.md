@@ -115,6 +115,10 @@ La referencia canónica es la implementación en producción: `assets/css/compon
 junto con el uso real en `index.html`. El núcleo está cerrado en **10 familias**; el
 resto son composiciones de página o utilidades de layout.
 
+Cuatro familias (`.label`, `.tag`, `.surface`, `.disclosure`) hoy no se usan en
+`index.html`. Se mantienen igual: son el vocabulario del sistema, no restos de una
+sección borrada, y la página no paga nada por tenerlas (el presupuesto está holgado).
+
 | Familia | Clases | Para qué |
 |---|---|---|
 | Label | `.label` | Contexto, metadatos y rótulos discretos. Sin mayúsculas forzadas ni tracking ornamental. |
@@ -130,7 +134,8 @@ resto son composiciones de página o utilidades de layout.
 
 ### Composiciones, no familias nuevas
 
-- `.hero`, `.contact`, `.matrix`, `.proof-teaser`, `.case__stats`, `.not-selling` y el footer combinan componentes, contenido y layout para una sección concreta.
+- `.hero`, `.contact`, `.matrix`, `.route`, `.case__stats`, `.deliverable` y el footer combinan componentes, contenido y layout para una sección concreta.
+- Las composiciones de secciones que se sacaron de la página (`.proof-teaser`, `.catalog__*`, `.model-rules`, `.phase*`, `.not-selling`) se borraron de `sections.css`: eran CSS que no pintaba nada. Están en el historial si hacen falta.
 - `.grid--2/3/4`, `.stack`, `.cluster`, `.container` y `.container--narrow` son utilidades de layout.
 - `.reveal` es una mejora progresiva de movimiento, no un componente visual.
 
@@ -164,11 +169,11 @@ Medido con `bash scripts/size.sh`. Estado actual entre paréntesis.
 
 | Recurso | Límite (crudo) | Hoy |
 |---|---|---|
-| HTML | 40 KB | 36 KB |
-| CSS (5 archivos) | 45 KB | 36 KB |
-| JS | 5 KB | 4.2 KB |
+| HTML | 40 KB | 29.5 KB |
+| CSS (5 archivos) | 45 KB | 38.3 KB |
+| JS | 5 KB | 4.1 KB |
 | Imágenes en el camino crítico | 0 | 0 |
-| **Total transferido (gzip)** | **< 25 KB** | **20.4 KB** |
+| **Total transferido (gzip)** | **< 25 KB** | **19.6 KB** |
 
 GitHub Pages sirve todo con gzip/brotli, así que el número que importa es el último.
 

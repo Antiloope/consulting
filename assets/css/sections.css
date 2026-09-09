@@ -116,29 +116,6 @@
    grande que el resto — no solo de otro color. */
 .statement em { font-style: normal; color: var(--accent-text); font-size: 1.15em; }
 
-/* ---- Compromiso: anticipo de prueba ---------------------------------------
-   Comparte sección con la declaración de arriba pero en su propio .container
-   (necesita más ancho que container--narrow) y con su propio ritmo interno,
-   más apretado que --section-py: es un anticipo, no una sección nueva.
-   ---------------------------------------------------------------------------- */
-.proof-teaser {
-  margin-top: var(--sp-10);
-  padding-top: var(--sp-10);
-  border-top: var(--border-width) solid var(--border);
-}
-.proof-teaser__lede { max-width: 60ch; }
-.proof-teaser__link {
-  display: inline-flex;
-  align-items: center;
-  min-height: calc(var(--sp-10) + var(--sp-1));
-  margin-top: var(--sp-3);
-  color: var(--accent-text);
-  font-weight: var(--fw-medium);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.proof-teaser__link:hover { color: var(--accent-hover); }
-
 /* ---- Mapa de madurez: matriz teaser ----------------------------------------
    Ejes (verticales × niveles) visibles. La primera vertical va completa como
    muestra (.matrix__row--sample); el resto queda en placeholder porque el
@@ -288,20 +265,6 @@
   color: var(--text-subtle);
 }
 
-/* ---- Reglas del modelo de madurez ------------------------------------------ */
-.model-rules {
-  margin-top: var(--sp-10);
-  padding-top: var(--sp-6);
-  border-top: var(--border-width) solid var(--border-strong);
-}
-.model-rule__title {
-  font-size: var(--fs-md);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-tight);
-  margin: 0 0 var(--sp-2);
-}
-.model-rule__body { font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-normal); margin: 0; }
-
 /* ---- Plan de acción: mapa A → B -------------------------------------------- */
 #servicios .section__head { margin-bottom: var(--sp-20); }
 
@@ -397,40 +360,6 @@
   border-top: var(--border-width) solid var(--border-strong);
 }
 
-/* ---- Framework (legacy label helper) --------------------------------------- */
-.phases { counter-reset: phase; }
-.phase { position: relative; }
-.phase__label {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-normal);
-  color: var(--accent-text);
-}
-
-/* ---- Catálogo -------------------------------------------------------------- */
-.catalog__item {
-  display: grid;
-  gap: var(--sp-2);
-  padding-block: var(--sp-5);
-  border-bottom: var(--border-width) solid var(--border);
-}
-.catalog__item:first-child { border-top: var(--border-width) solid var(--border); }
-.catalog__name {
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-tight);
-}
-.catalog__outcome { font-size: var(--fs-md); color: var(--text-muted); line-height: var(--lh-normal); }
-
-@media (min-width: 48em) {
-  .catalog__item {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto;
-    gap: var(--sp-6);
-    align-items: baseline;
-  }
-  .catalog__duration { justify-self: end; }
-}
-
 /* ---- Caso ------------------------------------------------------------------ */
 .case__stats {
   display: grid;
@@ -459,22 +388,6 @@
   color: var(--text-muted);
   max-width: 34ch;
 }
-
-/* ---- Modelo de trabajo ------------------------------------------------------ */
-.not-selling {
-  margin-top: var(--sp-8);
-  padding: var(--sp-5);
-  border: var(--border-width) dashed var(--border-strong);
-  border-radius: var(--radius-lg);
-}
-.not-selling__label {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-normal);
-  color: var(--text-muted);
-  margin-bottom: var(--sp-2);
-}
-.not-selling__list { font-size: var(--fs-md); color: var(--text-muted); }
 
 /* ---- Sobre mí --------------------------------------------------------------- */
 .about {
