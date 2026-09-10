@@ -11,7 +11,7 @@ de bloque numerado, en el mismo orden en que se lee la página:
 | 04 | `#framework` | Framework | Diagnóstico como primer paso del método, con un entregable único debajo de los objetivos. |
 | 05 | `#madurez` | Mapa de madurez | Matriz: 6 verticales × 5 niveles (00–04). La primera fila va completa como muestra; el resto en placeholder. |
 | 06 | `#servicios` | Plan de acción | Mapa simbólico A → B con plazos por tramo, más los entregables del plan. |
-| 07 | `#caso` | Caso real | Prueba: tres números y cinco filas de antes/después. Anonimizado. |
+| 07 | `#caso` | Caso real | Prueba: métricas de arranque y cinco filas de antes/después. Anonimizado. |
 | 08 | `#manifiesto` | Manifiesto | El diferencial en una frase. |
 | 09 | `#anatomia` | Anatomía | Timeline de ejemplo, del mismo problema que el caso. |
 | 10 | `#sobre-mi` | Sobre mí | Experiencia, forma de involucrarse y retrato de Rodrigo. |
@@ -73,8 +73,12 @@ la forma de trabajar, se actualizan estos dos antes que nada. La etiqueta es
 
 Es la única prueba concreta que hay en la página, así que se toca con cuidado.
 Está anonimizado a propósito: **sin nombre de cliente, sin rubro identificable y
-sin nombrar el stack legacy**. Los tres números de `.case__stats` y las cinco filas
-de `.compare` son reales; si cambiás alguno, que siga siendo verificable.
+sin nombrar el stack legacy**. Los números de `.case__stats` y las cinco filas de
+`.compare` son reales; si cambiás alguno, que siga siendo verificable.
+
+`.case__stats` se adapta a la cantidad de métricas que le pongas (una columna por
+métrica, sin wrap). Con dos o tres funciona; con más de tres los números quedan
+demasiado chicos para el efecto que buscan.
 
 Para sumar otro caso: duplicar la `<section>` completa con otro `id`, y agregar el
 ancla al `<nav>`. Usa solo componentes existentes (`.case__stats`, `.stat`,

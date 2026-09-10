@@ -364,11 +364,14 @@
 .case__stats {
   display: grid;
   gap: var(--sp-6);
-  grid-template-columns: repeat(3, 1fr);
+  /* Una columna por métrica, sea cual sea la cantidad: con un `repeat(3, 1fr)`
+     fijo, sacar una métrica dejaba una columna vacía a la derecha. */
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   padding-block: var(--sp-8);
 }
-/* Nunca a 1 columna: son números de 1-2 caracteres, entran de a 3 hasta en
-   el celular más chico, y romper el trío les saca fuerza retórica. */
+/* Nunca a 1 columna: son números de 1-2 caracteres, entran en fila hasta en
+   el celular más chico, y apilarlos les saca fuerza retórica. */
 @media (max-width: 30em) {
   .case__stats { gap: var(--sp-3); }
 }
