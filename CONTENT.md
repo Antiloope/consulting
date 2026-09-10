@@ -11,13 +11,13 @@ de bloque numerado, en el mismo orden en que se lee la página:
 | 04 | `#framework` | Framework | Diagnóstico como primer paso del método, con un entregable único debajo de los objetivos. |
 | 05 | `#madurez` | Mapa de madurez | Matriz: 6 verticales × 5 niveles (00–04). La primera fila va completa como muestra; el resto en placeholder. |
 | 06 | `#servicios` | Plan de acción | Mapa simbólico A → B con plazos por tramo, más los entregables del plan. |
+| 07 | `#caso` | Caso real | Prueba: métricas de arranque y cinco filas de antes/después. Anonimizado. |
 | 08 | `#manifiesto` | Manifiesto | El diferencial en una frase. |
-| 09 | `#anatomia` | Anatomía | Timeline de ejemplo. |
+| 09 | `#anatomia` | Anatomía | Timeline de ejemplo, del mismo problema que el caso. |
 | 10 | `#sobre-mi` | Sobre mí | Experiencia, forma de involucrarse y retrato de Rodrigo. |
 | 11 | `#contacto` | Contacto | CTA final. |
 
-El `07` falta a propósito: era el caso testigo y se sacó de la página. La numeración de
-los comentarios de bloque quedó como está para no renumerar todo el archivo.
+El `07` volvió a la página: es el caso testigo, anonimizado. Ver § 2.
 
 Si agregás o sacás una sección, actualizá también los links del `<nav class="site-nav">`
 en el header (el scroll-spy los toma de ahí automáticamente).
@@ -69,6 +69,21 @@ diagnóstico) y otro al final de `#servicios` (lo que devuelve el plan). Si camb
 la forma de trabajar, se actualizan estos dos antes que nada. La etiqueta es
 `.card__label`; el de `#servicios` usa `.checklist`.
 
+### Editar el caso real (`#caso`)
+
+Es la única prueba concreta que hay en la página, así que se toca con cuidado.
+Está anonimizado a propósito: **sin nombre de cliente, sin rubro identificable y
+sin nombrar el stack legacy**. Los números de `.case__stats` y las cinco filas de
+`.compare` son reales; si cambiás alguno, que siga siendo verificable.
+
+`.case__stats` se adapta a la cantidad de métricas que le pongas (una columna por
+métrica, sin wrap). Con dos o tres funciona; con más de tres los números quedan
+demasiado chicos para el efecto que buscan.
+
+Para sumar otro caso: duplicar la `<section>` completa con otro `id`, y agregar el
+ancla al `<nav>`. Usa solo componentes existentes (`.case__stats`, `.stat`,
+`.compare`), así que no hace falta CSS nuevo.
+
 ### Cambiar el orden de las secciones
 
 Mover el bloque `<section>` completo. Alterná el fondo entre `section`,
@@ -81,27 +96,18 @@ Borrar el bloque `@media (prefers-color-scheme: dark)` al final de
 
 ---
 
-## § 3 · Pendientes marcados con `REVISAR` en el HTML
+## § 3 · Consistencia de plazos
 
-El deck original tenía cuatro puntos ambiguos o inconsistentes. Quedan tres sin
-resolver, marcados con comentarios `REVISAR` en `index.html`:
+Los plazos aparecen en dos lugares y **tienen que cerrar entre sí**:
 
-```bash
-grep -n "REVISAR\|TODO" index.html
-```
+- El mapa A → B de `#servicios` (`.route__duration`): 2 sem · 1 sem · 6–10 sem · 1–2 sem.
+- La timeline de `#anatomia`: semanas 1-2, semana 3, semanas 4-5, y después
+  «Según el plan».
 
-1. ~~**Nivel 00 del mapa de madurez.**~~ Resuelto: `#madurez` es una matriz propia
-   (6 verticales × 5 niveles). Se publica la estructura completa y el criterio de
-   una sola vertical como muestra; el resto se trabaja en el diagnóstico. Ver § 2.
-
-2. **Duración de Reliability & Incident.** El catálogo dice **12 semanas** y el
-   ejemplo de "Anatomía de un proyecto" usa **8 semanas**. Definir cuál va.
-
-3. **Duración del Technology Assessment.** El catálogo dice **2–4 semanas** y la slide
-   de oferta de entrada dice **3 semanas**. Está puesto como 2–4; ajustar si corresponde.
-
-4. **Rangos de la timeline.** El deck listaba "SEMANAS 2" y "SEMANAS 8" sin el rango
-   completo. Quedaron como *Semanas 2–7* y *Semana 8*. Confirmar.
+La ejecución en `#anatomia` **no lleva plazo cerrado a propósito**: depende del plan y
+la lleva adelante el equipo de la empresa, no el consultor. Si alguna vez le ponés un
+número, revisá que entre en el tramo de 6–10 semanas del mapa, o vas a estar
+prometiendo dos cosas distintas en la misma página.
 
 La explicación detallada de niveles y transiciones se cubre en la conversación de
 diagnóstico, no en la landing pública: `#madurez` muestra los ejes completos y una
